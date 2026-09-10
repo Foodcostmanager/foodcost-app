@@ -12,13 +12,13 @@
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-    <title>Food Cost Manager Plus v5.9</title>
+    <title>Food Cost Manager Plus v6.1</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         /* ============================================================
-           v5.9 — cloud sync, guida aggiornata, UI premium
+           v6.1 — cloud sync, guida aggiornata, UI premium
            ============================================================ */
         :root {
             --ios-bg: #06080F;
@@ -3039,6 +3039,15 @@
             <button type="button" class="btn-add" id="settings-join-locale-btn" style="margin:0;">Collega questo codice</button>
             <div class="auth-error" id="settings-locale-error" style="margin-top:8px;"></div>
         </div>
+        <div class="form-container" id="cloud-newlocale-box" style="margin:10px 0 14px;padding:14px 16px;">
+            <div class="settings-desc" style="margin-bottom:10px;">Vuoi aprire un <strong>nuovo locale</strong> (es. un secondo ristorante)? Verrà creato uno spazio cloud nuovo e vuoto, e questo account si scollegherà automaticamente da quello attuale.</div>
+            <div class="form-group" style="margin-bottom:10px;">
+                <label>Nome nuovo locale</label>
+                <input type="text" id="settings-newlocale-name" placeholder="es. Trattoria Da Mario 2" maxlength="80">
+            </div>
+            <button type="button" class="btn-add" id="settings-create-locale-btn" style="margin:0;background:var(--ios-blue)">Crea nuovo locale</button>
+            <div class="auth-error" id="settings-newlocale-error" style="margin-top:8px;"></div>
+        </div>
         <div class="section-title">Il tuo locale</div>
         <div class="form-container">
             <div class="form-group">
@@ -3253,7 +3262,7 @@
                     <div class="gi-sketch" aria-hidden="true"><svg viewBox="0 0 96 96"><circle cx="48" cy="38" r="16"/><path d="M48 28v6M42 36h12"/><path d="M32 62h32M36 70h24M40 78h16"/></svg></div>
                     <div class="gi-step">Slide 13 · 13</div>
                     <div class="gi-title">Info</div>
-                    <div class="gi-body"><strong>Food Cost Manager Plus</strong><br>Versione 5.9<br><br>Home procedurale, profilo locale, storico prezzi, confezioni e menù clienti.<br><br>I tuoi dati vengono sincronizzati in modo sicuro sul cloud per permetterti di accedervi da più dispositivi.</div>
+                    <div class="gi-body"><strong>Food Cost Manager Plus</strong><br>Versione <span id="gi-app-version">5.9</span><br><br>Home procedurale, profilo locale, storico prezzi, confezioni e menù clienti.<br><br>I tuoi dati vengono sincronizzati in modo sicuro sul cloud per permetterti di accedervi da più dispositivi.</div>
                 </article>
             </div>
             <div class="guida-nav-row">
@@ -3465,6 +3474,10 @@
                     <div class="datalist-hint">Tocca per selezionare. Compariranno nel menù clienti con *</div>
                     <div class="allergeni-grid" id="ing-allergeni-grid"></div>
                 </div>
+                <div class="form-group">
+                    <label class="menu-toggle"><input type="checkbox" id="ing-surgelato"> ❄️ Prodotto surgelato / congelato</label>
+                    <div class="datalist-hint">Se attivo, comparirà con ❄ accanto al nome nel menù clienti (obbligo di legge per i prodotti surgelati).</div>
+                </div>
             </div>
             <input type="hidden" id="ing-edit-id">
             <button class="btn-add" id="ing-save-btn">Salva Ingrediente</button>
@@ -3516,6 +3529,8 @@
                 </div>
                 <div class="form-group">
                     <label class="menu-toggle"><input type="checkbox" id="piatto-in-menu"> Includi nel menù clienti</label>
+                    <label class="menu-toggle"><input type="checkbox" id="piatto-mostra-ing" checked> Mostra elenco ingredienti nel menù</label>
+                    <div class="datalist-hint">Disattiva se preferisci mostrare solo nome, prezzo e allergeni (es. non per una pizzeria dove è utile elencare gli ingredienti).</div>
                     <div class="datalist-hint">Solo i piatti selezionati compaiono nella stampa menù</div>
                 </div>
                 <div class="form-group">
@@ -3565,6 +3580,24 @@
             <div class="form-group">
                 <label>Sottotitolo (opzionale)</label>
                 <input id="menu-sottotitolo" placeholder="es. Ristorante da Mario">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Carattere</label>
+                    <select id="menu-font-family">
+                        <option value="times">Elegante (con grazie)</option>
+                        <option value="helvetica">Moderno (lineare)</option>
+                        <option value="courier">Macchina da scrivere</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Dimensione testo</label>
+                    <select id="menu-font-size">
+                        <option value="small">Piccolo</option>
+                        <option value="medium" selected>Medio</option>
+                        <option value="large">Grande</option>
+                    </select>
+                </div>
             </div>
         </div>
         <button class="btn-add" id="menu-preview-btn">👁 Aggiorna anteprima</button>
@@ -4089,7 +4122,7 @@
         listaSpesa: [],
         archivio: [],
         ultimoCalcolo: null,
-        settings: { nomeLocale: '', nomeTitolare: '', setupDone: false }
+        settings: { nomeLocale: '', nomeTitolare: '', setupDone: false, menuFont: 'times', menuFontSize: 'medium' }
     };
 
     // ============================================================
@@ -4106,6 +4139,8 @@
                 if (!data.settings) data.settings = {};
                 if (data.settings.nomeLocale === undefined) data.settings.nomeLocale = '';
                 if (data.settings.nomeTitolare === undefined) data.settings.nomeTitolare = '';
+                if (data.settings.menuFont === undefined) data.settings.menuFont = 'times';
+                if (data.settings.menuFontSize === undefined) data.settings.menuFontSize = 'medium';
                 if (data.settings.setupDone === undefined) data.settings.setupDone = false;
                 (data.ingredienti || []).forEach(i => { if (!i.allergeni) i.allergeni = []; });
                 (data.piatti || []).forEach(p => { if (p.inMenu === undefined) p.inMenu = false; });
@@ -4124,6 +4159,12 @@
         renderListaSpesa();
         try { if (typeof scheduleCloudSave === 'function') scheduleCloudSave(); } catch (e) {}
     }
+
+    // ============================================================
+    // VERSIONE APP — unico punto da aggiornare ad ogni nuovo rilascio.
+    // Aggiorna SOLO questa riga: titolo pagina e guida si aggiornano da soli.
+    // ============================================================
+    const APP_VERSION = '6.1';
 
     let appData = loadData();
     setTimeout(() => { try { renderAllergeniGrid([]); } catch(e) {} }, 0);
@@ -4339,7 +4380,8 @@
     function getIngredientiNomiPiatto(piattoId) {
         return getComposizioni(piattoId).map(c => {
             const ing = getIngrediente(c.ingredienteId);
-            return ing ? ing.nome : null;
+            if (!ing) return null;
+            return ing.surgelato ? (ing.nome + ' ❄') : ing.nome;
         }).filter(Boolean);
     }
 
@@ -5037,6 +5079,9 @@
                 document.getElementById('ing-form-title').textContent = 'Modifica Ingrediente';
                 document.getElementById('ing-save-btn').textContent = 'Aggiorna Ingrediente';
                 document.getElementById('ing-conferma').style.display = 'none';
+                if (document.getElementById('ing-surgelato')) {
+                    document.getElementById('ing-surgelato').checked = !!ing.surgelato;
+                }
                 renderAllergeniGrid(ing.allergeni || []);
                 aggiornaCostoDaConfezione();
                 aggiornaCostoRealeForm();
@@ -5130,6 +5175,9 @@
                     document.getElementById('piatto-data-creazione').value = piat.dataCreazione || '';
                 }
                 document.getElementById('piatto-in-menu').checked = !!piat.inMenu;
+                if (document.getElementById('piatto-mostra-ing')) {
+                    document.getElementById('piatto-mostra-ing').checked = piat.mostraIngredientiMenu !== false;
+                }
                 if (typeof syncMenuToggleStyle === 'function') syncMenuToggleStyle();
                 document.getElementById('piatto-edit-id').value = piat.id;
                 document.getElementById('piatto-form-title').textContent = 'Modifica Piatto';
@@ -5523,8 +5571,9 @@
         }
 
         const allergeni = getSelectedAllergeni();
+        const surgelato = !!document.getElementById('ing-surgelato')?.checked;
         const payload = {
-            nome, fornitore: fornitore || null, costo, um, scarto, allergeni,
+            nome, fornitore: fornitore || null, costo, um, scarto, allergeni, surgelato,
             confCosto: confCosto > 0 ? confCosto : null,
             confQty: confQty > 0 ? confQty : null
         };
@@ -5561,6 +5610,7 @@
         document.getElementById('ing-form-title').textContent = 'Nuovo Ingrediente';
         document.getElementById('ing-save-btn').textContent = 'Salva Ingrediente';
         document.getElementById('ing-costo-reale').value = '';
+        if (document.getElementById('ing-surgelato')) document.getElementById('ing-surgelato').checked = false;
         renderStoricoPrezziForm(null);
         renderAllergeniGrid([]);
         
@@ -5660,16 +5710,17 @@
         const note = document.getElementById('piatto-note').value.trim();
         const immagine = document.getElementById('piatto-img-data').value || null;
         const inMenu = !!(document.getElementById('piatto-in-menu') && document.getElementById('piatto-in-menu').checked);
+        const mostraIngredientiMenu = !(document.getElementById('piatto-mostra-ing') && document.getElementById('piatto-mostra-ing').checked === false);
         const dataCreazione = (document.getElementById('piatto-data-creazione') || {}).value || '';
         
         if (!nome || isNaN(prezzo)) { showToast('❌ Nome e Prezzo sono obbligatori.', 'error'); return; }
 
         if (id) {
             const piat = getPiatto(id);
-            if (piat) { Object.assign(piat, { nome, prezzo, categoria, note, immagine, inMenu, dataCreazione }); }
+            if (piat) { Object.assign(piat, { nome, prezzo, categoria, note, immagine, inMenu, mostraIngredientiMenu, dataCreazione }); }
             showToast('✅ Piatto aggiornato!', 'success');
         } else {
-            appData.piatti.push({ id: genId(), nome, prezzo, categoria, note, immagine, inMenu, dataCreazione: dataCreazione || new Date().toISOString().slice(0,10) });
+            appData.piatti.push({ id: genId(), nome, prezzo, categoria, note, immagine, inMenu, mostraIngredientiMenu, dataCreazione: dataCreazione || new Date().toISOString().slice(0,10) });
             showToast('✅ Piatto aggiunto!', 'success');
         }
         
@@ -5869,6 +5920,22 @@
     // ============================================================
     // MENU CLIENTI
     // ============================================================
+    function menuFontCssFamily(key) {
+        if (key === 'helvetica') return "-apple-system, 'Helvetica Neue', Arial, sans-serif";
+        if (key === 'courier') return "'Courier New', Courier, monospace";
+        return "Georgia, 'Times New Roman', serif";
+    }
+    function menuFontPdfName(key) {
+        if (key === 'helvetica') return 'helvetica';
+        if (key === 'courier') return 'courier';
+        return 'times';
+    }
+    function menuFontSizeMultiplier(key) {
+        if (key === 'small') return 0.85;
+        if (key === 'large') return 1.15;
+        return 1;
+    }
+
     function buildMenuData() {
         const piatti = (appData.piatti || []).filter(p => p.inMenu);
         const ordineCat = ['Antipasto','Primo','Secondo','Contorno','Piatto unico','Dolce','Vari'];
@@ -5885,10 +5952,12 @@
         const allAllergeni = new Set();
         const sections = cats.map(cat => {
             const items = grouped[cat].sort((a,b) => a.nome.localeCompare(b.nome)).map(p => {
-                const ings = getIngredientiNomiPiatto(p.id);
+                const ingsRaw = getIngredientiNomiPiatto(p.id);
+                const hasSurgelato = ingsRaw.some(n => n.includes('❄'));
+                const ings = p.mostraIngredientiMenu === false ? [] : ingsRaw;
                 const alls = getAllergeniPiatto(p.id);
                 alls.forEach(a => allAllergeni.add(a));
-                return { piatto: p, ings, alls, hasAll: alls.length > 0 };
+                return { piatto: p, ings, alls, hasAll: alls.length > 0, hasSurgelato };
             });
             return { cat, items };
         });
@@ -5907,12 +5976,28 @@
         }
         let body = '';
         let hasAnyAllergen = false;
+        let hasAnySurgelato = false;
+        const fontKey = getSettings().menuFont || 'times';
+        const sizeKey = getSettings().menuFontSize || 'medium';
+        const mult = menuFontSizeMultiplier(sizeKey);
+        const fontStyleBlock = `<style>
+            .menu-preview-box { font-family: ${menuFontCssFamily(fontKey)}; }
+            .menu-preview-box .menu-title { font-size: ${Math.round(30 * mult)}px; }
+            .menu-preview-box .menu-sub { font-size: ${Math.round(14 * mult)}px; }
+            .menu-preview-box .menu-cat { font-size: ${Math.round(15 * mult)}px; }
+            .menu-preview-box .menu-dish-name { font-size: ${Math.round(18 * mult)}px; }
+            .menu-preview-box .menu-dish-price { font-size: ${Math.round(17 * mult)}px; }
+            .menu-preview-box .menu-dish-ings { font-size: ${Math.round(13 * mult)}px; }
+            .menu-preview-box .menu-dish-all { font-size: ${Math.round(12 * mult)}px; }
+            .menu-preview-box .menu-legend { font-size: ${Math.round(12 * mult)}px; }
+        </style>`;
         data.sections.forEach(sec => {
             if (!sec.items.length) return;
             body += `<div class="menu-cat">${sec.cat}</div>`;
             sec.items.forEach(it => {
                 if (it.hasAll) hasAnyAllergen = true;
-                const star = it.hasAll ? ' *' : '';
+                if (it.hasSurgelato) hasAnySurgelato = true;
+                const star = (it.hasAll ? ' *' : '') + (it.hasSurgelato ? ' ❄' : '');
                 const ings = it.ings.length ? it.ings.join(', ') : '';
                 const allText = it.hasAll
                     ? allergeniLabels(it.alls).join(', ')
@@ -5929,9 +6014,12 @@
         });
         let legend = '';
         if (hasAnyAllergen) {
-            legend = `<div class="menu-legend"><strong>*</strong> Gli allergeni sono indicati sotto ogni piatto interessato (Reg. UE 1169/2011). Per dubbi chiedere al personale.</div>`;
+            legend += `<div class="menu-legend"><strong>*</strong> Gli allergeni sono indicati sotto ogni piatto interessato (Reg. UE 1169/2011). Per dubbi chiedere al personale.</div>`;
         }
-        box.innerHTML = `<div class="menu-preview-box">
+        if (hasAnySurgelato) {
+            legend += `<div class="menu-legend"><strong>❄</strong> Prodotto surgelato all'origine.</div>`;
+        }
+        box.innerHTML = `${fontStyleBlock}<div class="menu-preview-box">
             <div class="menu-title">${titolo}</div>
             ${sotto ? `<div class="menu-sub">${sotto}</div>` : ''}
             ${body}
@@ -5940,6 +6028,20 @@
     }
 
     document.getElementById('menu-preview-btn')?.addEventListener('click', renderMenuPreview);
+    document.getElementById('menu-font-family')?.addEventListener('change', function() {
+        const s = getSettings();
+        s.menuFont = this.value;
+        saveData(appData);
+        try { if (typeof scheduleCloudSave === 'function') scheduleCloudSave(); } catch (e) {}
+        renderMenuPreview();
+    });
+    document.getElementById('menu-font-size')?.addEventListener('change', function() {
+        const s = getSettings();
+        s.menuFontSize = this.value;
+        saveData(appData);
+        try { if (typeof scheduleCloudSave === 'function') scheduleCloudSave(); } catch (e) {}
+        renderMenuPreview();
+    });
     document.getElementById('menu-pdf-btn')?.addEventListener('click', function() {
         const data = buildMenuData();
         if (!data.sections.length || data.sections.every(s => !s.items.length)) {
@@ -5966,12 +6068,15 @@
                 const LH_INGS = 5.4;
                 const LH_ALL = 5.0;
                 const LH_NOTE = 5.0;
+                const pdfFont = menuFontPdfName(getSettings().menuFont || 'times');
+                const pdfMult = menuFontSizeMultiplier(getSettings().menuFontSize || 'medium');
 
                 const titolo = (document.getElementById('menu-titolo') || {}).value || 'Menù';
                 const sotto = (document.getElementById('menu-sottotitolo') || {}).value || '';
 
                 let y = marginTop;
                 let hasAnyAllergen = false;
+                let hasAnySurgelato = false;
 
                 function newPage() {
                     pdf.addPage();
@@ -5983,23 +6088,23 @@
                 }
 
                 // Titolo elegante
-                pdf.setFont('times', 'bold');
-                pdf.setFontSize(28);
+                pdf.setFont(pdfFont, 'bold');
+                pdf.setFontSize(Math.round(28 * pdfMult));
                 pdf.setTextColor(28, 28, 28);
                 pdf.text(titolo, pageW / 2, y, { align: 'center' });
                 y += 10;
 
                 if (sotto) {
-                    pdf.setFont('times', 'italic');
-                    pdf.setFontSize(13);
+                    pdf.setFont(pdfFont, 'italic');
+                    pdf.setFontSize(Math.round(13 * pdfMult));
                     pdf.setTextColor(90, 90, 90);
                     pdf.text(sotto, pageW / 2, y, { align: 'center' });
                     y += 8;
                 }
                 const nomeLocalePdf = ((appData.settings || {}).nomeLocale || '').trim();
                 if (nomeLocalePdf) {
-                    pdf.setFont('times', 'normal');
-                    pdf.setFontSize(11);
+                    pdf.setFont(pdfFont, 'normal');
+                    pdf.setFontSize(Math.round(11 * pdfMult));
                     pdf.setTextColor(70, 70, 70);
                     pdf.text(nomeLocalePdf, pageW / 2, y, { align: 'center' });
                     y += 7;
@@ -6017,8 +6122,8 @@
                     ensureSpace(36);
 
                     // Categoria
-                    pdf.setFont('times', 'bold');
-                    pdf.setFontSize(14);
+                    pdf.setFont(pdfFont, 'bold');
+                    pdf.setFontSize(Math.round(14 * pdfMult));
                     pdf.setTextColor(40, 40, 40);
                     const catLabel = String(sec.cat || '').toUpperCase();
                     pdf.text(catLabel, pageW / 2, y, { align: 'center' });
@@ -6031,19 +6136,20 @@
                     let catPrintedOnPage = true;
                     sec.items.forEach(it => {
                         if (it.hasAll) hasAnyAllergen = true;
-                        const name = it.piatto.nome + (it.hasAll ? ' *' : '');
+                        if (it.hasSurgelato) hasAnySurgelato = true;
+                        const name = it.piatto.nome + (it.hasAll ? ' *' : '') + (it.hasSurgelato ? ' ❄' : '');
                         const price = '€ ' + Number(it.piatto.prezzo).toFixed(2);
                         const ings = it.ings.length ? it.ings.join(', ') : '';
                         const allText = it.hasAll ? ('Allergeni: ' + allergeniLabels(it.alls).join(', ')) : '';
 
-                        pdf.setFont('times', 'bold');
-                        pdf.setFontSize(15);
+                        pdf.setFont(pdfFont, 'bold');
+                        pdf.setFontSize(Math.round(15 * pdfMult));
                         const nameLines = pdf.splitTextToSize(name, contentW - 32);
-                        pdf.setFont('times', 'italic');
-                        pdf.setFontSize(11);
+                        pdf.setFont(pdfFont, 'italic');
+                        pdf.setFontSize(Math.round(11 * pdfMult));
                         const ingsLines = ings ? pdf.splitTextToSize(ings, contentW) : [];
                         pdf.setFont('helvetica', 'normal');
-                        pdf.setFontSize(10);
+                        pdf.setFontSize(Math.round(10 * pdfMult));
                         const allLines = allText ? pdf.splitTextToSize(allText, contentW) : [];
 
                         const blockH =
@@ -6060,8 +6166,8 @@
                         }
 
                         if (!catPrintedOnPage) {
-                            pdf.setFont('times', 'bold');
-                            pdf.setFontSize(14);
+                            pdf.setFont(pdfFont, 'bold');
+                            pdf.setFontSize(Math.round(14 * pdfMult));
                             pdf.setTextColor(40, 40, 40);
                             pdf.text(catLabel + ' (continua)', pageW / 2, y, { align: 'center' });
                             y += 3;
@@ -6072,26 +6178,26 @@
                             catPrintedOnPage = true;
                         }
 
-                        pdf.setFont('times', 'bold');
-                        pdf.setFontSize(15);
+                        pdf.setFont(pdfFont, 'bold');
+                        pdf.setFontSize(Math.round(15 * pdfMult));
                         pdf.setTextColor(28, 28, 28);
                         pdf.text(nameLines, marginX, y);
 
-                        pdf.setFont('times', 'bold');
-                        pdf.setFontSize(14);
+                        pdf.setFont(pdfFont, 'bold');
+                        pdf.setFontSize(Math.round(14 * pdfMult));
                         pdf.text(price, marginX + contentW, y, { align: 'right' });
                         y += nameLines.length * LH_NAME;
 
                         if (ingsLines.length) {
-                            pdf.setFont('times', 'italic');
-                            pdf.setFontSize(11);
+                            pdf.setFont(pdfFont, 'italic');
+                            pdf.setFontSize(Math.round(11 * pdfMult));
                             pdf.setTextColor(85, 85, 85);
                             pdf.text(ingsLines, marginX, y);
                             y += ingsLines.length * LH_INGS + 1.5;
                         }
                         if (allLines.length) {
                             pdf.setFont('helvetica', 'normal');
-                            pdf.setFontSize(10);
+                            pdf.setFontSize(Math.round(10 * pdfMult));
                             pdf.setTextColor(110, 75, 20);
                             pdf.text(allLines, marginX, y);
                             y += allLines.length * LH_ALL + 1.5;
@@ -6105,7 +6211,7 @@
                 if (hasAnyAllergen) {
                     const note = '* Gli allergeni sono indicati sotto ogni piatto interessato (Reg. UE 1169/2011). Per dubbi chiedere al personale.';
                     pdf.setFont('helvetica', 'normal');
-                    pdf.setFontSize(10);
+                    pdf.setFontSize(Math.round(10 * pdfMult));
                     const noteLines = pdf.splitTextToSize(note, contentW);
                     ensureSpace(noteLines.length * LH_NOTE + 12);
                     y += 4;
@@ -6114,6 +6220,23 @@
                     y += 8;
                     pdf.setTextColor(90, 90, 90);
                     pdf.text(noteLines, marginX, y);
+                    y += noteLines.length * LH_NOTE;
+                }
+
+                if (hasAnySurgelato) {
+                    const noteFreeze = '❄ Prodotto surgelato all\'origine.';
+                    pdf.setFont('helvetica', 'normal');
+                    pdf.setFontSize(Math.round(10 * pdfMult));
+                    const noteFreezeLines = pdf.splitTextToSize(noteFreeze, contentW);
+                    ensureSpace(noteFreezeLines.length * LH_NOTE + 8);
+                    y += hasAnyAllergen ? 3 : 4;
+                    if (!hasAnyAllergen) {
+                        pdf.setDrawColor(190, 190, 190);
+                        pdf.line(marginX, y, marginX + contentW, y);
+                        y += 8;
+                    }
+                    pdf.setTextColor(90, 90, 90);
+                    pdf.text(noteFreezeLines, marginX, y);
                 }
 
                 const safeName = titolo.replace(/[^\w\- ]+/g, '').trim() || 'Menu';
@@ -6807,13 +6930,19 @@
     // ============================================================
     function getSettings() {
         if (!appData.settings) {
-            appData.settings = { nomeLocale: '', nomeTitolare: '', setupDone: false };
+            appData.settings = { nomeLocale: '', nomeTitolare: '', setupDone: false, menuFont: 'times', menuFontSize: 'medium' };
         }
+        if (appData.settings.menuFont === undefined) appData.settings.menuFont = 'times';
+        if (appData.settings.menuFontSize === undefined) appData.settings.menuFontSize = 'medium';
         return appData.settings;
     }
 
     function aggiornaBranding() {
         const s = getSettings();
+        const menuFontSel = document.getElementById('menu-font-family');
+        const menuSizeSel = document.getElementById('menu-font-size');
+        if (menuFontSel && menuFontSel.value !== s.menuFont) menuFontSel.value = s.menuFont || 'times';
+        if (menuSizeSel && menuSizeSel.value !== s.menuFontSize) menuSizeSel.value = s.menuFontSize || 'medium';
         const locale = (s.nomeLocale || '').trim();
         const titolare = (s.nomeTitolare || '').trim();
         const line = document.getElementById('home-locale-line');
@@ -7189,6 +7318,8 @@
         if (!remote.ingredienti) remote.ingredienti = [];
         if (!remote.piatti) remote.piatti = [];
         if (!remote.settings) remote.settings = (appData && appData.settings) || {};
+        if (remote.settings.menuFont === undefined) remote.settings.menuFont = 'times';
+        if (remote.settings.menuFontSize === undefined) remote.settings.menuFontSize = 'medium';
         (remote.ingredienti || []).forEach(i => { if (!i.allergeni) i.allergeni = []; });
         (remote.piatti || []).forEach(p => { if (p.inMenu === undefined) p.inMenu = false; });
         return remote;
@@ -7484,6 +7615,38 @@
             }
         });
 
+        document.getElementById('settings-create-locale-btn')?.addEventListener('click', async () => {
+            const err = document.getElementById('settings-newlocale-error');
+            const nome = (document.getElementById('settings-newlocale-name')?.value || '').trim();
+            if (!nome) {
+                if (err) err.textContent = 'Inserisci un nome per il nuovo locale.';
+                return;
+            }
+            if (!cloudUser) {
+                if (err) err.textContent = 'Devi essere collegato al cloud per creare un nuovo locale.';
+                return;
+            }
+            const conferma = confirm('Verrà creato un nuovo locale vuoto chiamato "' + nome + '".\n\nQuesto account si scollegherà dal locale attuale (i dati del locale attuale restano salvati sul cloud, ma non saranno più visibili da qui).\n\nContinuare?');
+            if (!conferma) return;
+            try {
+                if (err) err.textContent = '';
+                stopCloudListener();
+                appData = JSON.parse(JSON.stringify(defaultData));
+                appData.magazzino = [];
+                appData.listaSpesa = [];
+                saveData(appData);
+                const code = await createLocale(nome);
+                startCloudListener();
+                updateCloudStatusUI();
+                document.getElementById('settings-newlocale-name').value = '';
+                showToast('✅ Nuovo locale creato! Codice: ' + code, 'success', 5000);
+                try { renderAll(); aggiornaBranding(); } catch (e) {}
+            } catch (e) {
+                if (err) err.textContent = e.message || 'Errore nella creazione del locale';
+                showToast(e.message || 'Errore nella creazione del locale', 'error', 3500);
+            }
+        });
+
         fbAuth.onAuthStateChanged(async (user) => {
             try {
                 await onAuthUser(user);
@@ -7594,6 +7757,11 @@
 
     // AVVIO
     loadTheme();
+    try {
+        document.title = 'Food Cost Manager Plus v' + APP_VERSION;
+        const giVer = document.getElementById('gi-app-version');
+        if (giVer) giVer.textContent = APP_VERSION;
+    } catch (e) {}
     renderAll();
     aggiornaBranding();
     const _pdc = document.getElementById('piatto-data-creazione');
