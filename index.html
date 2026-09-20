@@ -6,19 +6,13 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-    <meta name="theme-color" content="#0a0e18">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="FC Manager">
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-    <title>Food Cost Manager Plus v6.1</title>
+    <title>Food Cost Manager Plus v8.9</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         /* ============================================================
-           v6.1 — cloud sync, guida aggiornata, UI premium
+           v8.9 — trovata la vera causa del font che non cambiava in anteprima: una regola globale (il carattere di base di tutta l'app, applicato a ogni elemento) vinceva sempre sul font scelto per il menù, perché una regola diretta sui singoli elementi batte l'ereditarietà dal genitore anche se il genitore ha un font impostato
            ============================================================ */
         :root {
             --ios-bg: #06080F;
@@ -45,8 +39,8 @@
             --ios-success-bg: rgba(61, 220, 132, 0.14);
             --ios-success-text: #3DDC84;
             --header-bg: rgba(8, 10, 18, 0.94);
-            --toast-bg: rgba(244, 246, 248, 0.95);
-            --toast-text: #0B0D10;
+            --toast-bg: rgba(16,20,26,0.92);
+            --toast-text: #FFFFFF;
             --help-bg: rgba(12, 14, 24, 0.97);
             --help-text: #F5F7FF;
             --ios-header-bg-image: none;
@@ -87,8 +81,8 @@
             --ios-success-bg: rgba(61, 220, 132, 0.14);
             --ios-success-text: #3DDC84;
             --header-bg: rgba(8, 10, 18, 0.94);
-            --toast-bg: rgba(244, 246, 248, 0.95);
-            --toast-text: #0B0D10;
+            --toast-bg: rgba(16,20,26,0.92);
+            --toast-text: #FFFFFF;
             --help-bg: rgba(12, 14, 24, 0.97);
             --help-text: #F5F7FF;
             --header-overlay: rgba(6, 8, 15, 0.5);
@@ -123,8 +117,8 @@
             --ios-success-bg: #E6F7EE;
             --ios-success-text: #12A35A;
             --header-bg: rgba(255, 255, 255, 0.92);
-            --toast-bg: rgba(16,20,26,0.92);
-            --toast-text: #FFFFFF;
+            --toast-bg: rgba(244, 246, 248, 0.95);
+            --toast-text: #0B0D10;
             --help-bg: rgba(255, 255, 255, 0.98);
             --help-text: #1A2E26;
             --header-overlay: rgba(229, 242, 235, 0.4);
@@ -1884,12 +1878,6 @@
             border-color: rgba(61, 220, 132, 0.45);
             box-shadow: 0 0 0 1px rgba(61, 220, 132, 0.15);
         }
-        .menu-toggle.is-on {
-            color: var(--ios-green);
-            background: var(--ios-green-bg);
-            border-color: rgba(61, 220, 132, 0.45);
-            box-shadow: 0 0 0 1px rgba(61, 220, 132, 0.15);
-        }
         .storico-prezzi-box {
             margin-top: 12px;
             padding: 12px 14px;
@@ -1938,7 +1926,6 @@
             padding: 28px 20px;
             margin: 0 16px 16px;
             border: 1px solid #e8e0d5;
-            font-family: Georgia, 'Times New Roman', serif;
         }
         .menu-preview-box .menu-title {
             text-align: center;
@@ -2134,13 +2121,13 @@
             opacity: 0.75;
             font-weight: 400;
         }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+        .form-group input:not([type="checkbox"]):focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
             border-color: var(--ios-green);
             background-color: var(--ios-card);
             box-shadow: 0 0 0 3px var(--accent-glow);
         }
-        [data-theme="dark"] .form-group input:focus,
+        [data-theme="dark"] .form-group input:not([type="checkbox"]):focus,
         [data-theme="dark"] .form-group select:focus,
         [data-theme="dark"] .form-group textarea:focus {
             box-shadow: 0 0 0 3px var(--accent-glow);
@@ -2220,6 +2207,72 @@
             width: 90%;
             pointer-events: none;
         }
+        /* v7.6 — popup di conferma personalizzato, al posto del confirm()
+           nativo del browser (che mostra sempre l'indirizzo del sito). */
+        .custom-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .custom-modal-overlay.show {
+            display: flex;
+        }
+        .custom-modal-box {
+            background: var(--ios-card);
+            border: 1px solid var(--ios-border);
+            border-radius: 18px;
+            padding: 24px 20px 18px;
+            max-width: 340px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+            animation: modalPop 0.18s ease;
+        }
+        @keyframes modalPop {
+            from { transform: scale(0.92); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .custom-modal-icon {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+        .custom-modal-text {
+            color: var(--ios-text);
+            font-size: 15px;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            white-space: pre-line;
+        }
+        .custom-modal-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .custom-modal-btn {
+            flex: 1;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 10px;
+            font-size: 15px;
+            font-weight: 650;
+            cursor: pointer;
+        }
+        .custom-modal-btn.secondary {
+            background: var(--ios-bg);
+            color: var(--ios-text-sec);
+            border: 1px solid var(--ios-border);
+        }
+        .custom-modal-btn.primary {
+            background: var(--ios-green);
+            color: #fff;
+        }
+        .custom-modal-btn.primary.danger {
+            background: var(--ios-red);
+        }
         .toast {
             background: var(--toast-bg);
             color: var(--toast-text);
@@ -2253,21 +2306,53 @@
             opacity: 1;
             transform: translateY(0) scale(1);
         }
-        .toast.success { border-left: 4px solid var(--ios-green); }
-        .toast.error { border-left: 4px solid var(--ios-red); }
-        .toast.info { border-left: 4px solid var(--ios-blue); }
-        .toast.warning { border-left: 4px solid var(--ios-orange); }
+        .toast.success { border-color: var(--ios-green); box-shadow: 0 10px 40px rgba(0,0,0,0.25), 0 0 20px rgba(61,220,132,0.18); }
+        .toast.error { border-color: var(--ios-red); box-shadow: 0 10px 40px rgba(0,0,0,0.25), 0 0 20px rgba(255,90,95,0.18); }
+        .toast.info { border-color: var(--ios-blue); box-shadow: 0 10px 40px rgba(0,0,0,0.25), 0 0 20px rgba(107,140,255,0.18); }
+        .toast.warning { border-color: var(--ios-orange); box-shadow: 0 10px 40px rgba(0,0,0,0.25), 0 0 20px rgba(255,176,32,0.18); }
         .toast.greeting {
             font-size: 20px;
             font-weight: 700;
             letter-spacing: -0.3px;
             padding: 18px 26px;
             border-radius: 18px;
-            border-left: 4px solid var(--ios-blue);
+            border-color: var(--ios-blue);
             box-shadow:
                 0 14px 40px rgba(0,0,0,0.35),
                 0 0 24px rgba(107, 140, 255, 0.2);
             max-width: 92%;
+        }
+
+        /* v7.9 — chip di selezione categoria, al posto del <select> nativo
+           (che su Android apre il picker di sistema, fuori dal controllo
+           grafico dell'app).
+           v8.5 — vanno a capo invece di scorrere lateralmente: lo
+           scorrimento orizzontale richiedeva il dito (touch) e su un
+           computer con mouse le chip fuori dallo schermo diventavano
+           irraggiungibili. A capo funziona identico ovunque. */
+        .chip-select-scroll {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 4px 2px 6px;
+        }
+        .chip-option {
+            flex-shrink: 0;
+            padding: 9px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--ios-border);
+            background: var(--ios-card);
+            color: var(--ios-text-sec);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+        }
+        .chip-option.active {
+            background: var(--ios-green);
+            border-color: var(--ios-green);
+            color: #fff;
         }
 
         /* ===== UTILITIES ===== */
@@ -2810,6 +2895,16 @@
 
     <!-- ===== TOAST CONTAINER ===== -->
     <div class="toast-container" id="toastContainer"></div>
+    <div class="custom-modal-overlay" id="customModalOverlay">
+        <div class="custom-modal-box">
+            <div class="custom-modal-icon" id="customModalIcon">🍽️</div>
+            <div class="custom-modal-text" id="customModalText"></div>
+            <div class="custom-modal-actions">
+                <button type="button" class="custom-modal-btn secondary" id="customModalAnnulla">Annulla</button>
+                <button type="button" class="custom-modal-btn primary" id="customModalOk">Ok</button>
+            </div>
+        </div>
+    </div>
 
     <!-- ===== LIGHTBOX FOTO PIATTO ===== -->
     <div class="lightbox-overlay" id="lightboxOverlay">
@@ -3047,6 +3142,13 @@
             </div>
             <button type="button" class="btn-add" id="settings-create-locale-btn" style="margin:0;background:var(--ios-blue)">Crea nuovo locale</button>
             <div class="auth-error" id="settings-newlocale-error" style="margin-top:8px;"></div>
+        </div>
+        <div class="form-container" id="cloud-force-push-box" hidden style="margin:10px 0 14px;padding:14px 16px;border-color:var(--ios-orange);">
+            <div class="settings-desc" style="margin-bottom:10px;">
+                <strong>⚠️ Forza invio dati al cloud.</strong> Usalo solo se sei sicuro che i dati su <strong>questo dispositivo</strong> siano quelli giusti (es. dopo un'importazione o una pulizia dati) e vuoi che sostituiscano quelli sul cloud, così che gli altri dispositivi collegati a questo locale li ricevano.
+            </div>
+            <button type="button" class="btn-add" id="cloud-force-push-btn" style="margin:0;background:var(--ios-orange);">Invia questi dati al cloud (sovrascrivi)</button>
+            <div class="auth-error" id="cloud-force-push-error" style="margin-top:8px;"></div>
         </div>
         <div class="section-title">Il tuo locale</div>
         <div class="form-container">
@@ -3291,6 +3393,7 @@
 
         <div class="section-title">Elementi nella lista</div>
         <div id="lista-spesa-list" class="list-container scroll-list"></div>
+        <button type="button" class="btn-add" id="spesa-pulisci-orfani-btn" style="margin-top:8px;background:var(--ios-orange);display:none;">🧹 Rimuovi elementi con ingredienti eliminati e sincronizza</button>
 
         <button class="btn-share" id="shareSpesaBtn" style="margin-top:10px;">📤 Condividi via WhatsApp</button>
 
@@ -3311,13 +3414,14 @@
                 </div>
                 <div class="form-group">
                     <label>Unità</label>
-                    <select id="spesa-um">
-                        <option value="Kg">Kg</option>
-                        <option value="Litri">Litri</option>
-                        <option value="Pezzi">Pezzi</option>
-                        <option value="Grammi">Gr</option>
-                        <option value="ml">ml</option>
-                    </select>
+                    <div class="chip-select-scroll" id="spesa-um-chips" data-for="spesa-um">
+                        <button type="button" class="chip-option active" data-value="Kg">Kg</button>
+                        <button type="button" class="chip-option" data-value="Litri">Litri</button>
+                        <button type="button" class="chip-option" data-value="Pezzi">Pezzi</button>
+                        <button type="button" class="chip-option" data-value="Grammi">Gr</button>
+                        <button type="button" class="chip-option" data-value="ml">ml</button>
+                    </div>
+                    <input type="hidden" id="spesa-um" value="Kg">
                 </div>
             </div>
             <div class="form-group">
@@ -3368,13 +3472,14 @@
                 </div>
                 <div class="form-group">
                     <label>Unità</label>
-                    <select id="stock-unit">
-                        <option value="Kg">Kg</option>
-                        <option value="Litri">Litri</option>
-                        <option value="Pezzi">Pezzi</option>
-                        <option value="Grammi">Grammi</option>
-                        <option value="ml">ml</option>
-                    </select>
+                    <div class="chip-select-scroll" id="stock-unit-chips" data-for="stock-unit">
+                        <button type="button" class="chip-option active" data-value="Kg">Kg</button>
+                        <button type="button" class="chip-option" data-value="Litri">Litri</button>
+                        <button type="button" class="chip-option" data-value="Pezzi">Pezzi</button>
+                        <button type="button" class="chip-option" data-value="Grammi">Grammi</button>
+                        <button type="button" class="chip-option" data-value="ml">ml</button>
+                    </div>
+                    <input type="hidden" id="stock-unit" value="Kg">
                 </div>
             </div>
             <div class="form-group">
@@ -3445,13 +3550,24 @@
                     </div>
                     <div class="form-group">
                         <label>Unità</label>
-                        <select id="ing-um">
-                            <option value="Kg">Kg</option>
-                            <option value="Litri">Litri</option>
-                            <option value="Pezzi">Pezzi</option>
-                            <option value="Grammi">Grammi</option>
-                            <option value="ml">ml</option>
-                        </select>
+                        <div class="chip-select-scroll" id="ing-um-chips" data-for="ing-um">
+                            <button type="button" class="chip-option active" data-value="Kg">Kg</button>
+                            <button type="button" class="chip-option" data-value="Litri">Litri</button>
+                            <button type="button" class="chip-option" data-value="Pezzi">Pezzi</button>
+                            <button type="button" class="chip-option" data-value="Grammi">Grammi</button>
+                            <button type="button" class="chip-option" data-value="ml">ml</button>
+                        </div>
+                        <input type="hidden" id="ing-um" value="Kg">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <a href="javascript:void(0)" id="ing-iva-link" style="font-size:13px; color:var(--ios-blue); text-decoration:underline;">Hai il prezzo IVA inclusa? →</a>
+                    <input type="checkbox" id="ing-iva-inclusa" style="display:none;">
+                    <div id="ing-iva-wrap" style="display:none; margin-top:10px; background:var(--ios-card); border:1px solid var(--ios-border); border-radius:10px; padding:10px;">
+                        <label>IVA (%)</label>
+                        <input id="ing-iva-perc" type="number" step="0.5" min="0" max="22" placeholder="es. 10" value="10">
+                        <div class="datalist-hint" style="margin-top:6px;">Esempio: scontrino 6,10€ al 10% → salviamo 5,55€ (netto). L'app converte automaticamente prima di salvare — nei calcoli viene sempre usato il costo al netto IVA.</div>
+                        <button type="button" id="ing-iva-annulla" style="margin-top:8px; background:none; border:none; color:var(--ios-text-sec); font-size:12px; text-decoration:underline; cursor:pointer; padding:0;">Annulla, il prezzo è già al netto</button>
                     </div>
                 </div>
                 <div class="form-row">
@@ -3510,15 +3626,16 @@
                     <div class="form-group"><label>Prezzo Vendita (€)</label><input id="piatto-prezzo" type="number" step="0.01" placeholder="0.00"></div>
                     <div class="form-group">
                         <label>Categoria</label>
-                        <select id="piatto-categoria">
-                            <option value="Antipasto">Antipasto</option>
-                            <option value="Primo">Primo</option>
-                            <option value="Secondo">Secondo</option>
-                            <option value="Contorno">Contorno</option>
-                            <option value="Piatto unico">Piatto unico</option>
-                            <option value="Dolce">Dolce</option>
-                            <option value="Vari">Vari</option>
-                        </select>
+                        <div class="chip-select-scroll" id="piatto-categoria-chips">
+                            <button type="button" class="chip-option" data-value="Antipasto">Antipasto</button>
+                            <button type="button" class="chip-option" data-value="Primo">Primo</button>
+                            <button type="button" class="chip-option" data-value="Secondo">Secondo</button>
+                            <button type="button" class="chip-option" data-value="Contorno">Contorno</button>
+                            <button type="button" class="chip-option" data-value="Piatto unico">Piatto unico</button>
+                            <button type="button" class="chip-option" data-value="Dolce">Dolce</button>
+                            <button type="button" class="chip-option active" data-value="Vari">Vari</button>
+                        </div>
+                        <input type="hidden" id="piatto-categoria" value="Vari">
                     </div>
                 </div>
                 <div class="form-group"><label>Note (opzionale)</label><input id="piatto-note" placeholder="es. descr. breve"></div>
@@ -3581,23 +3698,23 @@
                 <label>Sottotitolo (opzionale)</label>
                 <input id="menu-sottotitolo" placeholder="es. Ristorante da Mario">
             </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Carattere</label>
-                    <select id="menu-font-family">
-                        <option value="times">Elegante (con grazie)</option>
-                        <option value="helvetica">Moderno (lineare)</option>
-                        <option value="courier">Macchina da scrivere</option>
-                    </select>
+            <div class="form-group">
+                <label>Carattere</label>
+                <div class="chip-select-scroll" id="menu-font-family-chips" data-for="menu-font-family">
+                    <button type="button" class="chip-option active" data-value="times">Elegante</button>
+                    <button type="button" class="chip-option" data-value="helvetica">Moderno</button>
+                    <button type="button" class="chip-option" data-value="courier">Tipografico</button>
                 </div>
-                <div class="form-group">
-                    <label>Dimensione testo</label>
-                    <select id="menu-font-size">
-                        <option value="small">Piccolo</option>
-                        <option value="medium" selected>Medio</option>
-                        <option value="large">Grande</option>
-                    </select>
+                <input type="hidden" id="menu-font-family" value="times">
+            </div>
+            <div class="form-group">
+                <label>Dimensione testo</label>
+                <div class="chip-select-scroll" id="menu-font-size-chips" data-for="menu-font-size">
+                    <button type="button" class="chip-option" data-value="small">Piccolo</button>
+                    <button type="button" class="chip-option active" data-value="medium">Medio</button>
+                    <button type="button" class="chip-option" data-value="large">Grande</button>
                 </div>
+                <input type="hidden" id="menu-font-size" value="medium">
             </div>
         </div>
         <button class="btn-add" id="menu-preview-btn">👁 Aggiorna anteprima</button>
@@ -3659,13 +3776,14 @@
                     </div>
                     <div class="form-group">
                         <label>Unità usata</label>
-                        <select id="ricetta-um-select">
-                            <option value="Kg">Kg</option>
-                            <option value="Litri">Litri</option>
-                            <option value="Pezzi">Pezzi</option>
-                            <option value="Grammi" selected>Gr</option>
-                            <option value="ml">ml</option>
-                        </select>
+                        <div class="chip-select-scroll" id="ricetta-um-select-chips" data-for="ricetta-um-select">
+                            <button type="button" class="chip-option" data-value="Kg">Kg</button>
+                            <button type="button" class="chip-option" data-value="Litri">Litri</button>
+                            <button type="button" class="chip-option" data-value="Pezzi">Pezzi</button>
+                            <button type="button" class="chip-option active" data-value="Grammi">Gr</button>
+                            <button type="button" class="chip-option" data-value="ml">ml</button>
+                        </div>
+                        <input type="hidden" id="ricetta-um-select" value="Grammi">
                     </div>
                 </div>
                 <div id="costo-anteprima" class="prezzo-anteprima" style="display:none; border-color:var(--ios-green); background-color:var(--ios-green-bg);">
@@ -3692,6 +3810,11 @@
                 <span class="title-text">Calcolo FC</span>
             </div>
         </div>
+        <div style="display:flex; gap:8px; margin-bottom:14px;">
+            <button type="button" id="calcolo-modo-piatto-btn" class="btn-add" style="flex:1; margin:0;">Piatto singolo</button>
+            <button type="button" id="calcolo-modo-evento-btn" class="btn-add" style="flex:1; margin:0; background:var(--ios-card); color:var(--ios-text); border:1px solid var(--ios-border);">🎉 Evento</button>
+        </div>
+        <div id="calcolo-modo-piatto">
         <div class="section-title">Parametri Globali</div>
         <div class="form-container">
             <div class="form-row">
@@ -3715,6 +3838,28 @@
         <button class="btn-pdf" id="pdf-btn" disabled>📄 Scarica PDF</button>
         <button class="btn-backup" id="archivio-btn" disabled style="display:none;">📁 Salva in Archivio FC</button>
         <div id="calcolo-risultato"></div>
+        </div>
+        <div id="calcolo-modo-evento" style="display:none;">
+            <div class="section-title">Parametri Globali</div>
+            <div class="form-container">
+                <div class="form-row">
+                    <div class="form-group"><label>IVA (%)</label><input id="evento-iva-percentuale" type="number" step="0.5" value="10" min="0" max="22"></div>
+                    <div class="form-group"><label>Costi Fissi est. (%)</label><input id="evento-costi-fissi-percentuale" type="number" step="1" value="30" min="0" max="80"></div>
+                </div>
+            </div>
+            <div class="section-title">Piatti dell'evento</div>
+            <div class="datalist-hint" style="margin:0 0 10px;">Calcolo rapido per gruppi/banchetti: cerca e aggiungi i piatti coinvolti, poi indica quante persone li prendono. Non viene salvato da nessuna parte, serve solo per questo calcolo.</div>
+            <div class="form-group">
+                <div class="search-wrap">
+                    <input type="text" id="evento-search-input" placeholder="Cerca un piatto da aggiungere..." autocomplete="off">
+                    <div id="evento-suggerimenti" class="suggerimenti-box"></div>
+                </div>
+            </div>
+            <div id="evento-piatti-list" class="list-container scroll-list"></div>
+            <button class="btn-add" id="evento-calcola-btn" style="margin-top:14px;">🎉 Calcola Evento</button>
+            <button class="btn-pdf" id="evento-pdf-btn" disabled>📄 Scarica PDF (uso interno)</button>
+            <div id="evento-risultato"></div>
+        </div>
     </div>
 
     <!-- ========================================================= -->
@@ -3776,6 +3921,18 @@
         <div class="progress-bar" id="progress-bar"><div class="fill" id="progress-fill"></div></div>
         <button class="btn-import" id="import-btn" disabled>Avvia Importazione</button>
         <div id="import-status" style="margin:0 16px;"></div>
+
+        <div class="section-title">Libreria Ingredienti Standard</div>
+        <div class="form-container" style="padding:16px;">
+            <p style="color:var(--ios-text-sec); font-size:15px; margin-bottom:10px;">
+                Scarica una libreria pronta di ingredienti comuni (nome, unità e scarto già compilati, allergeni dove noti) — utile per partire subito senza scrivere tutto a mano.
+            </p>
+            <p style="color:var(--ios-text-sec); font-size:13px; margin-bottom:10px;">
+                <strong>Aggiunge solo</strong> gli ingredienti che non hai già: non tocca mai i tuoi ingredienti esistenti (prezzi compresi). I prezzi arrivano a 0 — vanno impostati da te in base al tuo fornitore.
+            </p>
+            <button class="btn-add" id="libreria-download-btn" style="margin:0;">📥 Scarica libreria ingredienti standard</button>
+            <div id="libreria-status" style="margin-top:10px;"></div>
+        </div>
         <hr>
         <div class="section-title">Zona Pericolo</div>
         <div class="warning-box">
@@ -3996,7 +4153,7 @@
         function chiudiWelcome() {
             toast.classList.remove('show');
             if (overlay) overlay.classList.remove('show');
-            localStorage.setItem(welcomeKey, 'true');
+            safeSetItem(welcomeKey, 'true');
         }
         document.getElementById('welcomeGotIt')?.addEventListener('click', chiudiWelcome);
         overlay?.addEventListener('click', chiudiWelcome);
@@ -4007,7 +4164,7 @@
     // ============================================================
     function applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('foodcost_theme', theme);
+        safeSetItem('foodcost_theme', theme);
         document.getElementById('theme-light').classList.toggle('active', theme === 'light');
         document.getElementById('theme-dark').classList.toggle('active', theme === 'dark');
         aggiornaSfondo(theme);
@@ -4029,7 +4186,7 @@
     function salvaSfondo(theme, dataUrl) {
         const key = theme === 'light' ? BG_LIGHT_KEY : BG_DARK_KEY;
         if (dataUrl) {
-            localStorage.setItem(key, dataUrl);
+            safeSetItem(key, dataUrl);
         } else {
             localStorage.removeItem(key);
         }
@@ -4075,7 +4232,9 @@
         reader.readAsDataURL(file);
     });
     document.getElementById('bg-light-remove').addEventListener('click', () => {
-        if (confirm('Rimuovere lo sfondo Light?')) { salvaSfondo('light', null); showToast('🗑️ Sfondo Light rimosso.', 'info'); }
+        showConfirmModal('Rimuovere lo sfondo Light?', '🗑️', function() {
+            salvaSfondo('light', null); showToast('🗑️ Sfondo Light rimosso.', 'info');
+        }, true);
     });
 
     document.getElementById('bg-dark-btn').addEventListener('click', () => document.getElementById('bg-dark-input').click());
@@ -4091,7 +4250,9 @@
         reader.readAsDataURL(file);
     });
     document.getElementById('bg-dark-remove').addEventListener('click', () => {
-        if (confirm('Rimuovere lo sfondo Dark?')) { salvaSfondo('dark', null); showToast('🗑️ Sfondo Dark rimosso.', 'info'); }
+        showConfirmModal('Rimuovere lo sfondo Dark?', '🗑️', function() {
+            salvaSfondo('dark', null); showToast('🗑️ Sfondo Dark rimosso.', 'info');
+        }, true);
     });
 
     // ============================================================
@@ -4147,12 +4308,12 @@
                 return data;
             } catch(e) {}
         }
-        localStorage.setItem('foodcost_manager_plus_v5', JSON.stringify(defaultData));
+        safeSetItem('foodcost_manager_plus_v5', JSON.stringify(defaultData));
         return JSON.parse(JSON.stringify(defaultData));
     }
 
     function saveData(data) {
-        localStorage.setItem('foodcost_manager_plus_v5', JSON.stringify(data));
+        safeSetItem('foodcost_manager_plus_v5', JSON.stringify(data));
         aggiornaContatori();
         renderMagazzino();
         aggiornaSelectMagazzino();
@@ -4164,7 +4325,7 @@
     // VERSIONE APP — unico punto da aggiornare ad ogni nuovo rilascio.
     // Aggiorna SOLO questa riga: titolo pagina e guida si aggiornano da soli.
     // ============================================================
-    const APP_VERSION = '6.1';
+    const APP_VERSION = '8.9';
 
     let appData = loadData();
     setTimeout(() => { try { renderAllergeniGrid([]); } catch(e) {} }, 0);
@@ -4391,6 +4552,87 @@
     function getComposizioni(piattoId) { return appData.composizioni.filter(c => c.piattoId === piattoId); }
     function normalizeName(str) { return str.trim().toLowerCase().replace(/\s+/g, ' '); }
 
+    // v7.9 — chip di selezione categoria piatto: elenco valido e funzione
+    // che imposta sia il valore (nel campo nascosto, letto dal resto del
+    // codice come faceva prima con il <select>) sia lo stato visivo attivo.
+    const CATEGORIE_PIATTO = ['Antipasto', 'Primo', 'Secondo', 'Contorno', 'Piatto unico', 'Dolce', 'Vari'];
+    function setPiattoCategoriaChip(valore) {
+        const hidden = document.getElementById('piatto-categoria');
+        if (hidden) hidden.value = valore;
+        document.querySelectorAll('#piatto-categoria-chips .chip-option').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.value === valore);
+        });
+    }
+    document.getElementById('piatto-categoria-chips')?.addEventListener('click', function(e) {
+        const btn = e.target.closest('.chip-option');
+        if (!btn) return;
+        setPiattoCategoriaChip(btn.dataset.value);
+    });
+
+    // v8.0 — versione generica dello stesso meccanismo, per gli altri
+    // <select> sostituiti con chip (unità di misura, font/dimensione menù).
+    // Il contenitore porta data-for="id-del-campo-nascosto"; cliccare una
+    // chip aggiorna il campo nascosto E genera un evento "change" vero,
+    // così tutto il codice esistente che ascoltava il <select> originale
+    // continua a funzionare senza modifiche.
+    function setChipSelectValue(containerId, valore, fireChange) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        const hidden = document.getElementById(container.dataset.for);
+        if (!hidden) return;
+        hidden.value = valore;
+        container.querySelectorAll('.chip-option').forEach(b => b.classList.toggle('active', b.dataset.value === valore));
+        if (fireChange) hidden.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+    document.querySelectorAll('.chip-select-scroll[data-for]').forEach(container => {
+        container.addEventListener('click', function(e) {
+            const btn = e.target.closest('.chip-option');
+            if (!btn) return;
+            setChipSelectValue(container.id, btn.dataset.value, true);
+        });
+    });
+
+    // ============================================================
+    // v6.3 — escaping HTML per prevenire XSS su dati sincronizzati via cloud
+    // Da usare SEMPRE quando si inserisce un valore testuale libero
+    // (nome ingrediente, fornitore, nome piatto, note, titolo menù, ecc.)
+    // dentro un template innerHTML.
+    // ============================================================
+    function escapeHtml(str) {
+        if (str === null || str === undefined) return '';
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    // ============================================================
+    // v6.3 — salvataggio protetto su localStorage
+    // Evita che un QuotaExceededError (storage pieno) blocchi l'app
+    // senza avviso: se il salvataggio fallisce, l'utente viene
+    // informato con un toast invece di perdere silenziosamente i dati.
+    // ============================================================
+    function safeSetItem(key, value) {
+        try {
+            localStorage.setItem(key, value);
+            return true;
+        } catch (e) {
+            console.error('Errore salvataggio localStorage:', e);
+            try {
+                const quotaFull = e && (e.name === 'QuotaExceededError' || e.code === 22 || e.code === 1014);
+                showToast(
+                    quotaFull
+                        ? '⚠️ Spazio di salvataggio pieno. Libera spazio (es. rimuovi foto sfondo) o esporta un backup: le ultime modifiche potrebbero non essere salvate.'
+                        : '⚠️ Errore nel salvataggio dei dati sul dispositivo.',
+                    'error', 5000
+                );
+            } catch (e2) {}
+            return false;
+        }
+    }
+
     function calcolaCostoReale(ing) {
         if (!ing) return 0;
         const scarto = ing.scarto || 0;
@@ -4523,7 +4765,7 @@
             try {
                 const data = JSON.parse(ev.target.result);
                 if (data.ingredienti && data.piatti && data.composizioni) {
-                    if (confirm('⚠️ Questo sovrascriverà TUTTI i dati attuali. Continuare?')) {
+                    showConfirmModal('⚠️ Questo sovrascriverà TUTTI i dati attuali. Continuare?', '⚠️', function() {
                         appData = data;
                         if (!appData.magazzino) appData.magazzino = [];
                         if (!appData.listaSpesa) appData.listaSpesa = [];
@@ -4531,7 +4773,7 @@
                         saveData(appData);
                         renderAll();
                         showToast('✅ Backup importato con successo!', 'success');
-                    }
+                    }, true);
                 } else {
                     showToast('❌ File non valido. Formato errato.', 'error');
                 }
@@ -4613,11 +4855,11 @@
                 <div class="card-item" style="flex-direction:column; align-items:stretch;">
                     <div class="stock-item">
                         <div class="stock-top">
-                            <span class="stock-name">${ing ? ing.nome : 'Ingrediente rimosso'}</span>
-                            <span class="stock-qty">${item.quantita} ${item.unità || 'Kg'}</span>
+                            <span class="stock-name">${ing ? escapeHtml(ing.nome) : 'Ingrediente rimosso'}</span>
+                            <span class="stock-qty">${item.quantita} ${escapeHtml(item.unità || 'Kg')}</span>
                         </div>
                         <div class="stock-bottom">
-                            <span>${item.note || ''}</span>
+                            <span>${escapeHtml(item.note || '')}</span>
                             <span class="stock-expiry">
                                 ${item.expiry ? (isExpired ? '🔴 SCADUTO!' : expiringSoon ? '🟡 Scade tra poco' : '📅 ' + new Date(item.expiry).toLocaleDateString('it-IT')) : 'Nessuna scadenza'}
                             </span>
@@ -4686,13 +4928,13 @@
         container.querySelectorAll('[data-action="del-stock"]').forEach(btn => {
             btn.addEventListener('click', function() {
                 const id = this.dataset.id;
-                if (confirm('Rimuovere questo prodotto dal magazzino?')) {
+                showConfirmModal('Rimuovere questo prodotto dal magazzino?', '🗑️', function() {
                     appData.magazzino = appData.magazzino.filter(s => s.id !== id);
                     saveData(appData);
                     renderMagazzino();
                     aggiornaContatori();
                     showToast('✅ Prodotto rimosso.', 'info');
-                }
+                }, true);
             });
         });
     }
@@ -4768,7 +5010,7 @@
             }
             box.innerHTML = matches.map(ing => `
                 <div class="sugg-item" data-id="${ing.id}">
-                    <span class="sugg-name">${ing.nome}</span>
+                    <span class="sugg-name">${escapeHtml(ing.nome)}</span>
                     <span class="sugg-meta">${ing.um}</span>
                 </div>
             `).join('');
@@ -4801,6 +5043,9 @@
     // ============================================================
     function renderListaSpesa() {
         const container = document.getElementById('lista-spesa-list');
+        const pulisciBtn = document.getElementById('spesa-pulisci-orfani-btn');
+        const haOrfani = appData.listaSpesa.some(item => !getIngrediente(item.ingredienteId));
+        if (pulisciBtn) pulisciBtn.style.display = haOrfani ? 'block' : 'none';
         if (appData.listaSpesa.length === 0) {
             container.innerHTML = '<div class="empty-msg">Nessun elemento nella lista spesa.</div>';
             return;
@@ -4817,12 +5062,12 @@
                 <div class="card-item" style="flex-direction:column; align-items:stretch;">
                     <div class="lista-spesa-item">
                         <div class="spesa-top">
-                            <span class="spesa-name">${ing ? ing.nome : 'Ingrediente rimosso'}</span>
-                            <span class="spesa-qty">${item.quantita} ${item.unita || 'Kg'}</span>
+                            <span class="spesa-name">${ing ? escapeHtml(ing.nome) : 'Ingrediente rimosso'}</span>
+                            <span class="spesa-qty">${item.quantita} ${escapeHtml(item.unita || 'Kg')}</span>
                         </div>
                         <div class="spesa-bottom">
                             <span class="spesa-data">${dataFormattata}</span>
-                            <span style="color:var(--ios-text-sec); font-size:12px;">${item.note || ''}</span>
+                            <span style="color:var(--ios-text-sec); font-size:12px;">${escapeHtml(item.note || '')}</span>
                         </div>
                         <div class="spesa-actions">
                             <button class="btn-del-spesa" data-id="${item.id}" data-action="del-spesa">🗑️ Rimuovi</button>
@@ -4835,15 +5080,51 @@
         container.querySelectorAll('[data-action="del-spesa"]').forEach(btn => {
             btn.addEventListener('click', function() {
                 const id = this.dataset.id;
-                if (confirm('Rimuovere questo elemento dalla lista spesa?')) {
+                showConfirmModal('Rimuovere questo elemento dalla lista spesa?', '🗑️', function() {
                     appData.listaSpesa = appData.listaSpesa.filter(s => s.id !== id);
                     saveData(appData);
                     renderListaSpesa();
                     showToast('✅ Elemento rimosso dalla lista.', 'info');
-                }
+                }, true);
             });
         });
     }
+
+    // v7.1 — rimuove in un colpo solo tutti gli elementi della lista spesa
+    // che puntano a ingredienti ormai inesistenti, e invia SUBITO il
+    // risultato al cloud (se collegato), senza lasciare una finestra di
+    // tempo in cui un altro dispositivo collegato allo stesso locale possa
+    // "rimettere a posto" la voce appena rimossa con la sua copia vecchia.
+    document.getElementById('spesa-pulisci-orfani-btn')?.addEventListener('click', async function() {
+        const prima = appData.listaSpesa.length;
+        appData.listaSpesa = appData.listaSpesa.filter(item => !!getIngrediente(item.ingredienteId));
+        const rimossi = prima - appData.listaSpesa.length;
+        if (rimossi === 0) {
+            renderListaSpesa();
+            return;
+        }
+        saveData(appData);
+        renderListaSpesa();
+        if (cloudUser && cloudLocaleId) {
+            const btn = this;
+            const testoOriginale = btn.textContent;
+            try {
+                btn.disabled = true;
+                btn.textContent = 'Sincronizzazione in corso…';
+                clearTimeout(saveCloudTimer);
+                pendingCloudPush = true;
+                await pushCloudData(true);
+                showToast(`✅ Rimossi ${rimossi} elementi e sincronizzato subito con il cloud`, 'success', 3500);
+            } catch (e) {
+                showToast('⚠️ Rimossi in locale, ma invio al cloud fallito: ' + (e && e.message ? e.message : 'errore sconosciuto'), 'error', 6000);
+            } finally {
+                btn.disabled = false;
+                btn.textContent = testoOriginale;
+            }
+        } else {
+            showToast(`✅ Rimossi ${rimossi} elementi dalla lista spesa`, 'success', 3000);
+        }
+    });
 
     document.getElementById('spesa-add-btn').addEventListener('click', function() {
         const searchVal = document.getElementById('spesa-search-input').value;
@@ -4899,7 +5180,7 @@
         }
         let html = disponibili.map(ing => `
             <div class="sugg-item" data-id="${ing.id}">
-                <span class="sugg-name">${ing.nome}</span>
+                <span class="sugg-name">${escapeHtml(ing.nome)}</span>
                 <span class="sugg-meta">${ing.um}</span>
             </div>
         `).join('');
@@ -4932,7 +5213,7 @@
         }
 
         let testo = '🛒 *Lista della Spesa* 🛒\n';
-        testo += `📅 Data: ${new Date().toLocaleDateString('it-IT', { day:'2-digit', month:'2-digit', year:'numeric' })}\n`;
+        testo += `Data: ${new Date().toLocaleDateString('it-IT', { day:'2-digit', month:'2-digit', year:'numeric' })}\n`;
         testo += '─────────────────\n\n';
 
         const sorted = [...appData.listaSpesa].sort((a, b) => {
@@ -5000,6 +5281,10 @@
             i.nome.toLowerCase().includes(filter) ||
             (i.fornitore || '').toLowerCase().includes(filter)
         );
+        // v6.6 — l'elenco (limitato a 40 elementi mostrati) va sempre ordinato
+        // alfabeticamente qui: gli ingredienti aggiunti da import/creazione
+        // finiscono in fondo all'array di salvataggio, non in ordine alfabetico.
+        filtered = filtered.slice().sort((a, b) => a.nome.localeCompare(b.nome, 'it', { sensitivity: 'base' }));
 
         if (filtered.length === 0) {
             container.innerHTML = '<div class="empty-msg">Nessun ingrediente.</div>';
@@ -5013,11 +5298,11 @@
             return `
                 <div class="card-item">
                     <div class="info">
-                        <div class="name">${ing.nome}</div>
+                        <div class="name">${escapeHtml(ing.nome)}</div>
                         <div class="detail">
                             <span>€ ${Number(ing.costo).toFixed(2)} / ${ing.um}</span>
                             ${deltaPrezzoHtml(ing)}
-                            ${ing.fornitore ? `<span class="scarto-tag">${ing.fornitore}</span>` : ''}
+                            ${ing.fornitore ? `<span class="scarto-tag">${escapeHtml(ing.fornitore)}</span>` : ''}
                             ${(ing.confCosto && ing.confQty) ? `<span class="scarto-tag">Conf. € ${Number(ing.confCosto).toFixed(2)} / ${ing.confQty} ${ing.um}</span>` : ''}
                             ${ing.scarto > 0 ? `<span class="scarto-tag">Scarto ${ing.scarto}%</span>` : ''}
                             ${ing.scarto > 0 ? `<span class="costo-reale-tag">Netto € ${costoReale.toFixed(2)}</span>` : ''}
@@ -5041,7 +5326,7 @@
         container.querySelectorAll('[data-action="del-ing"]').forEach(btn => {
             btn.addEventListener('click', function() {
                 const id = this.dataset.id;
-                if (confirm('Eliminare l\'ingrediente? Verrà rimosso anche dalle ricette.')) {
+                showConfirmModal('Eliminare l\'ingrediente? Verrà rimosso anche dalle ricette.', '🗑️', function() {
                     appData.ingredienti = appData.ingredienti.filter(i => i.id !== id);
                     appData.composizioni = appData.composizioni.filter(c => c.ingredienteId !== id);
                     appData.magazzino = appData.magazzino.filter(s => s.ingredienteId !== id);
@@ -5051,7 +5336,7 @@
                     aggiornaSelectMagazzino();
                     renderListaSpesa();
                     showToast('✅ Ingrediente eliminato.', 'info');
-                }
+                }, true);
             });
         });
 
@@ -5068,6 +5353,7 @@
                 }
                 document.getElementById('ing-costo').value = ing.costo;
                 document.getElementById('ing-um').value = ing.um || 'Kg';
+                setChipSelectValue('ing-um-chips', ing.um || 'Kg', false);
                 document.getElementById('ing-scarto').value = ing.scarto || 0;
                 if (document.getElementById('ing-conf-costo')) {
                     document.getElementById('ing-conf-costo').value = ing.confCosto != null ? ing.confCosto : '';
@@ -5121,14 +5407,14 @@
         let html = '';
         const categorieOrdinate = Object.keys(grouped).sort();
         categorieOrdinate.forEach(cat => {
-            html += `<div class="section-title" style="margin-top:16px;">${cat}</div>`;
+            html += `<div class="section-title" style="margin-top:16px;">${escapeHtml(cat)}</div>`;
             html += `<div class="list-container">`;
             grouped[cat].sort((a, b) => a.nome.localeCompare(b.nome)).forEach(p => {
                 html += `
                     <div class="card-item">
                         <div class="info">
-                            <div class="name">${p.nome}${p.inMenu ? '<span class="in-menu-badge">IN MENÙ</span>' : ''}</div>
-                            <div class="detail">Prezzo: € ${p.prezzo.toFixed(2)} · ${p.categoria || 'Varie'}${p.dataCreazione ? ' · ' + p.dataCreazione.split('-').reverse().join('/') : ''}</div>
+                            <div class="name">${escapeHtml(p.nome)}${p.inMenu ? '<span class="in-menu-badge">IN MENÙ</span>' : ''}</div>
+                            <div class="detail">Prezzo: € ${p.prezzo.toFixed(2)} · ${escapeHtml(p.categoria || 'Varie')}${p.dataCreazione ? ' · ' + p.dataCreazione.split('-').reverse().join('/') : ''}</div>
                         </div>
                         <div class="btn-group">
                             <button class="btn-sm btn-edit" data-id="${p.id}" data-action="edit-piat">✏️</button>
@@ -5145,13 +5431,13 @@
         container.querySelectorAll('[data-action="del-piat"]').forEach(btn => {
             btn.addEventListener('click', function() {
                 const id = this.dataset.id;
-                if (confirm('Eliminare il piatto e la sua ricetta?')) {
+                showConfirmModal('Eliminare il piatto e la sua ricetta?', '🗑️', function() {
                     appData.piatti = appData.piatti.filter(p => p.id !== id);
                     appData.composizioni = appData.composizioni.filter(c => c.piattoId !== id);
                     saveData(appData);
                     renderPiatti();
                     showToast('✅ Piatto eliminato.', 'info');
-                }
+                }, true);
             });
         });
 
@@ -5165,10 +5451,10 @@
                 document.getElementById('piatto-nome').value = piat.nome;
                 document.getElementById('piatto-prezzo').value = piat.prezzo;
                 const selectCat = document.getElementById('piatto-categoria');
-                if (piat.categoria && [...selectCat.options].some(opt => opt.value === piat.categoria)) {
-                    selectCat.value = piat.categoria;
+                if (piat.categoria && CATEGORIE_PIATTO.includes(piat.categoria)) {
+                    setPiattoCategoriaChip(piat.categoria);
                 } else {
-                    selectCat.value = 'Vari';
+                    setPiattoCategoriaChip('Vari');
                 }
                 document.getElementById('piatto-note').value = piat.note || '';
                 if (document.getElementById('piatto-data-creazione')) {
@@ -5263,7 +5549,7 @@
             // Se nessun testo, mostra tutti (utile quando la lista è corta)
             box.innerHTML = list.slice(0, 30).map(p => `
                 <div class="sugg-item" data-id="${p.id}">
-                    <span class="sugg-name">${p.nome}</span>
+                    <span class="sugg-name">${escapeHtml(p.nome)}</span>
                     <span class="sugg-meta">€ ${p.prezzo.toFixed(2)}</span>
                 </div>
             `).join('');
@@ -5321,7 +5607,7 @@
         }
         let html = disponibili.map(ing => `
             <div class="sugg-item" data-id="${ing.id}">
-                <span class="sugg-name">${ing.nome}</span>
+                <span class="sugg-name">${escapeHtml(ing.nome)}</span>
                 <span class="sugg-meta">${ing.um} ${ing.costo > 0 ? '€'+ing.costo.toFixed(2) : ''} ${ing.scarto > 0 ? '· scarto '+ing.scarto+'%' : ''}</span>
             </div>
         `).join('');
@@ -5376,21 +5662,21 @@
         if (piatto.immagine) {
             html += `
                 <div class="ricetta-foto-wrap" id="ricetta-foto">
-                    <img src="${piatto.immagine}" alt="${piatto.nome}">
+                    <img src="${piatto.immagine}" alt="${escapeHtml(piatto.nome)}">
                     <div class="foto-hint">🔍 Tocca per ingrandire</div>
                 </div>
             `;
         }
 
         if (comps.length === 0) {
-            html += `<div class="empty-msg">Nessun ingrediente inserito per "${piatto.nome}". Usa il form sotto.</div>`;
+            html += `<div class="empty-msg">Nessun ingrediente inserito per "${escapeHtml(piatto.nome)}". Usa il form sotto.</div>`;
             container.innerHTML = html;
             bindRicettaFoto();
             return;
         }
 
         let totale = 0;
-        html += `<div class="section-title">Ingredienti di: ${piatto.nome}</div><div class="list-container">`;
+        html += `<div class="section-title">Ingredienti di: ${escapeHtml(piatto.nome)}</div><div class="list-container">`;
         comps.forEach(comp => {
             const ing = getIngrediente(comp.ingredienteId);
             if (!ing) return;
@@ -5399,7 +5685,7 @@
             html += `
                 <div class="card-item">
                     <div class="info">
-                        <div class="name">${ing.nome}</div>
+                        <div class="name">${escapeHtml(ing.nome)}</div>
                         <div class="detail">
                             ${comp.quantita} ${comp.umUsata || ing.um} → 
                             <strong style="color:var(--ios-text);">€ ${costoParziale.toFixed(2)}</strong>
@@ -5418,12 +5704,12 @@
         container.querySelectorAll('[data-comp-id]').forEach(btn => {
             btn.addEventListener('click', function() {
                 const compId = this.dataset.compId;
-                if (confirm('Rimuovere l\'ingrediente dalla ricetta?')) {
+                showConfirmModal('Rimuovere l\'ingrediente dalla ricetta?', '🗑️', function() {
                     appData.composizioni = appData.composizioni.filter(c => c.id !== compId);
                     saveData(appData);
                     renderRicette();
                     showToast('✅ Ingrediente rimosso.', 'info');
-                }
+                }, true);
             });
         });
 
@@ -5484,7 +5770,7 @@
             }
             box.innerHTML = list.slice(0, 30).map(p => `
                 <div class="sugg-item" data-id="${p.id}">
-                    <span class="sugg-name">${p.nome}</span>
+                    <span class="sugg-name">${escapeHtml(p.nome)}</span>
                     <span class="sugg-meta">€ ${p.prezzo.toFixed(2)}</span>
                 </div>
             `).join('');
@@ -5550,6 +5836,19 @@
         aggiornaCostoDaConfezione();
         aggiornaCostoRealeForm();
     });
+    // v7.6 — la spunta IVA è nascosta di default dietro un link discreto:
+    // chi lavora già con prezzi netti (la maggioranza) non la vede nemmeno.
+    document.getElementById('ing-iva-link')?.addEventListener('click', function() {
+        document.getElementById('ing-iva-inclusa').checked = true;
+        document.getElementById('ing-iva-wrap').style.display = 'block';
+        this.style.display = 'none';
+    });
+    document.getElementById('ing-iva-annulla')?.addEventListener('click', function() {
+        document.getElementById('ing-iva-inclusa').checked = false;
+        document.getElementById('ing-iva-wrap').style.display = 'none';
+        const link = document.getElementById('ing-iva-link');
+        if (link) link.style.display = 'inline';
+    });
 
     document.getElementById('ing-save-btn').addEventListener('click', function() {
         const id = document.getElementById('ing-edit-id').value;
@@ -5557,7 +5856,7 @@
         const fornitore = (document.getElementById('ing-fornitore')?.value || '').trim();
         // Ricalcola da confezione se valorizzata
         aggiornaCostoDaConfezione();
-        const costo = parseFloat(document.getElementById('ing-costo').value) || 0;
+        let costo = parseFloat(document.getElementById('ing-costo').value) || 0;
         const um = document.getElementById('ing-um').value;
         const scarto = parseFloat(document.getElementById('ing-scarto').value) || 0;
         const confCosto = parseFloat(document.getElementById('ing-conf-costo')?.value) || 0;
@@ -5568,6 +5867,19 @@
         if ((confCosto > 0 && confQty <= 0) || (confQty > 0 && confCosto <= 0)) {
             showToast('❌ Per la confezione servi sia prezzo sia contenuto.', 'error');
             return;
+        }
+
+        // v7.6 — se il prezzo inserito è IVA inclusa, lo convertiamo in netto
+        // PRIMA di salvarlo: in memoria (e in tutti i calcoli food cost)
+        // viene sempre e solo conservato il costo al netto IVA, come già
+        // avveniva finora — questa è solo un'utilità di conversione
+        // al momento dell'inserimento, non un nuovo campo permanente.
+        const ivaInclusa = !!document.getElementById('ing-iva-inclusa')?.checked;
+        if (ivaInclusa) {
+            const ivaPerc = parseFloat(document.getElementById('ing-iva-perc')?.value) || 0;
+            if (ivaPerc > 0) {
+                costo = costo / (1 + ivaPerc / 100);
+            }
         }
 
         const allergeni = getSelectedAllergeni();
@@ -5611,6 +5923,9 @@
         document.getElementById('ing-save-btn').textContent = 'Salva Ingrediente';
         document.getElementById('ing-costo-reale').value = '';
         if (document.getElementById('ing-surgelato')) document.getElementById('ing-surgelato').checked = false;
+        if (document.getElementById('ing-iva-inclusa')) document.getElementById('ing-iva-inclusa').checked = false;
+        if (document.getElementById('ing-iva-wrap')) document.getElementById('ing-iva-wrap').style.display = 'none';
+        if (document.getElementById('ing-iva-link')) document.getElementById('ing-iva-link').style.display = 'inline';
         renderStoricoPrezziForm(null);
         renderAllergeniGrid([]);
         
@@ -5686,21 +6001,40 @@
     // ============================================================
     // SALVA PIATTO
     // ============================================================
-    function syncMenuToggleStyle() {
-        const cb = document.getElementById('piatto-in-menu');
-        const lab = cb && cb.closest('.menu-toggle');
-        if (!lab) return;
-        lab.classList.toggle('is-on', !!cb.checked);
-    }
-    document.getElementById('piatto-in-menu')?.addEventListener('change', syncMenuToggleStyle);
-    syncMenuToggleStyle();
-
     document.getElementById('ricetta-crea-piatto-btn')?.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
         showPage('piatti');
         showToast('Crea il piatto qui, poi torna in Ricette.', 'info');
     });
+
+    // v7.6 — popup di conferma personalizzato (stile app), al posto del
+    // confirm() nativo del browser. Uso: showConfirmModal('Testo', '🍽️', onOk)
+    // onOk viene chiamato solo se l'utente tocca "Ok".
+    function showConfirmModal(testo, icona, onOk, danger) {
+        const overlay = document.getElementById('customModalOverlay');
+        const textEl = document.getElementById('customModalText');
+        const iconEl = document.getElementById('customModalIcon');
+        const okBtn = document.getElementById('customModalOk');
+        const annullaBtn = document.getElementById('customModalAnnulla');
+        if (!overlay) { if (onOk) onOk(); return; }
+
+        textEl.textContent = testo;
+        iconEl.textContent = icona || '🍽️';
+        okBtn.classList.toggle('danger', !!danger);
+        overlay.classList.add('show');
+
+        function chiudi() {
+            overlay.classList.remove('show');
+            okBtn.removeEventListener('click', handleOk);
+            annullaBtn.removeEventListener('click', handleAnnulla);
+        }
+        function handleOk() { chiudi(); if (onOk) onOk(); }
+        function handleAnnulla() { chiudi(); }
+
+        okBtn.addEventListener('click', handleOk);
+        annullaBtn.addEventListener('click', handleAnnulla);
+    }
 
     document.getElementById('piatto-save-btn').addEventListener('click', function() {
         const id = document.getElementById('piatto-edit-id').value;
@@ -5715,12 +6049,14 @@
         
         if (!nome || isNaN(prezzo)) { showToast('❌ Nome e Prezzo sono obbligatori.', 'error'); return; }
 
+        let nuovoPiattoId = null;
         if (id) {
             const piat = getPiatto(id);
             if (piat) { Object.assign(piat, { nome, prezzo, categoria, note, immagine, inMenu, mostraIngredientiMenu, dataCreazione }); }
             showToast('✅ Piatto aggiornato!', 'success');
         } else {
-            appData.piatti.push({ id: genId(), nome, prezzo, categoria, note, immagine, inMenu, mostraIngredientiMenu, dataCreazione: dataCreazione || new Date().toISOString().slice(0,10) });
+            nuovoPiattoId = genId();
+            appData.piatti.push({ id: nuovoPiattoId, nome, prezzo, categoria, note, immagine, inMenu, mostraIngredientiMenu, dataCreazione: dataCreazione || new Date().toISOString().slice(0,10) });
             showToast('✅ Piatto aggiunto!', 'success');
         }
         
@@ -5729,6 +6065,7 @@
         document.getElementById('piatto-nome').value = '';
         document.getElementById('piatto-prezzo').value = '';
         document.getElementById('piatto-categoria').value = 'Vari';
+        setPiattoCategoriaChip('Vari');
         document.getElementById('piatto-note').value = '';
         if (document.getElementById('piatto-data-creazione')) document.getElementById('piatto-data-creazione').value = new Date().toISOString().slice(0,10);
         document.getElementById('piatto-in-menu').checked = false;
@@ -5740,6 +6077,23 @@
         document.getElementById('piatto-save-btn').textContent = 'Salva Piatto';
         
         renderPiatti();
+
+        // v7.6 — continuità piatto → ricetta: appena creato un piatto nuovo
+        // (non in modifica), proponi subito di aggiungerne gli ingredienti,
+        // invece di lasciare che l'utente debba ricordarsi di andare a
+        // cercarlo poi nella pagina Ricette.
+        if (nuovoPiattoId) {
+            const nomeCreato = nome;
+            const idCreato = nuovoPiattoId;
+            setTimeout(() => {
+                showConfirmModal(`"${nomeCreato}" creato! Vuoi aggiungere subito gli ingredienti della ricetta?`, '🍽️', function() {
+                    document.getElementById('ricetta-piatto-select').value = idCreato;
+                    const ricSearch = document.getElementById('ricetta-piatto-search');
+                    if (ricSearch) ricSearch.value = nomeCreato;
+                    showPage('ricette');
+                });
+            }, 300);
+        }
     });
 
     // ============================================================
@@ -5782,7 +6136,7 @@
 
         const comps = getComposizioni(piattoId);
         if (comps.length === 0) {
-            container.innerHTML = `<div class="empty-msg">Ricetta vuota per "${piatto.nome}".</div>`;
+            container.innerHTML = `<div class="empty-msg">Ricetta vuota per "${escapeHtml(piatto.nome)}".</div>`;
             pdfBtn.disabled = true;
             return;
         }
@@ -5853,7 +6207,7 @@
 
         let dettagliHtml = dettagli.map(d => `
             <div style="display:flex; justify-content:space-between; font-size:14px; padding: 4px 0; border-bottom:1px solid var(--ios-border);">
-                <span style="color:var(--ios-text);">${d.nome} (${d.qty} ${d.um})</span>
+                <span style="color:var(--ios-text);">${escapeHtml(d.nome)} (${d.qty} ${d.um})</span>
                 <span style="color:var(--ios-text-sec);">€ ${d.costo.toFixed(2)}</span>
             </div>
         `).join('');
@@ -5861,7 +6215,7 @@
         container.innerHTML = `
             <div class="section-title">Risultato Analisi</div>
             <div class="calcolo-box">
-                <div style="font-size:20px; font-weight:700; letter-spacing:-0.5px; margin-bottom:10px;">${piatto.nome}</div>
+                <div style="font-size:20px; font-weight:700; letter-spacing:-0.5px; margin-bottom:10px;">${escapeHtml(piatto.nome)}</div>
                 
                 <div class="list-container" style="padding: 10px; background-color: var(--ios-card-secondary); border:none; margin-bottom:15px;">
                     <div style="font-size:13px; text-transform:uppercase; color:var(--ios-text-sec); margin-bottom:5px;">Costi Ricetta</div>
@@ -5914,6 +6268,385 @@
         }
         appData.ultimoCalcolo = ultimoCalcolo;
         saveData(appData);
+    });
+
+    // ============================================================
+    // CALCOLO FC — MODALITÀ EVENTO (gruppi/banchetti)
+    // v7.6 — calcolo rapido su più piatti insieme, con relative quantità.
+    // Non viene salvato/sincronizzato da nessuna parte: è un calcolatore
+    // "usa e getta", pensato per menù fissi con più persone/più piatti.
+    // ============================================================
+    // v7.6 — quantità inserite in modalità Evento, tenute in memoria a parte
+    // dal DOM: così filtrare l'elenco con la ricerca non fa perdere i
+    // valori già impostati sui piatti momentaneamente non visibili.
+    let eventoQuantita = {};
+
+    document.getElementById('calcolo-modo-piatto-btn')?.addEventListener('click', function() {
+        document.getElementById('calcolo-modo-piatto').style.display = 'block';
+        document.getElementById('calcolo-modo-evento').style.display = 'none';
+        this.style.background = '';
+        this.style.color = '';
+        this.style.border = '';
+        const eventoBtn = document.getElementById('calcolo-modo-evento-btn');
+        if (eventoBtn) {
+            eventoBtn.style.background = 'var(--ios-card)';
+            eventoBtn.style.color = 'var(--ios-text)';
+            eventoBtn.style.border = '1px solid var(--ios-border)';
+        }
+    });
+    document.getElementById('calcolo-modo-evento-btn')?.addEventListener('click', function() {
+        document.getElementById('calcolo-modo-piatto').style.display = 'none';
+        document.getElementById('calcolo-modo-evento').style.display = 'block';
+        this.style.background = '';
+        this.style.color = '';
+        this.style.border = '';
+        const piattoBtn = document.getElementById('calcolo-modo-piatto-btn');
+        if (piattoBtn) {
+            piattoBtn.style.background = 'var(--ios-card)';
+            piattoBtn.style.color = 'var(--ios-text)';
+            piattoBtn.style.border = '1px solid var(--ios-border)';
+        }
+        renderEventoPiattiList();
+    });
+
+    function renderEventoPiattiList() {
+        const container = document.getElementById('evento-piatti-list');
+        if (!container) return;
+        const idsAggiunti = Object.keys(eventoQuantita);
+        if (idsAggiunti.length === 0) {
+            container.innerHTML = '<div class="empty-msg">Nessun piatto ancora aggiunto. Cerca sopra per iniziare.</div>';
+            return;
+        }
+        const piattiAggiunti = idsAggiunti
+            .map(id => getPiatto(id))
+            .filter(Boolean)
+            .sort((a, b) => a.nome.localeCompare(b.nome, 'it', { sensitivity: 'base' }));
+
+        container.innerHTML = piattiAggiunti.map(p => `
+            <div class="card-item">
+                <div class="info">
+                    <div class="name">${escapeHtml(p.nome)}</div>
+                    <div class="detail">€ ${Number(p.prezzo).toFixed(2)} a persona</div>
+                </div>
+                <input type="number" min="0" step="1" value="${eventoQuantita[p.id] || 1}" data-evento-qty="${p.id}" style="width:56px; text-align:center; padding:8px 4px; border-radius:8px; border:1px solid var(--ios-border); background:var(--ios-card); color:var(--ios-text);">
+                <button type="button" data-evento-remove="${p.id}" style="background:none; border:none; color:var(--ios-red); font-size:18px; padding:0 6px; cursor:pointer;">✕</button>
+            </div>
+        `).join('');
+
+        container.querySelectorAll('[data-evento-qty]').forEach(input => {
+            input.addEventListener('input', function() {
+                const qty = parseInt(this.value) || 0;
+                eventoQuantita[this.dataset.eventoQty] = qty;
+            });
+        });
+        container.querySelectorAll('[data-evento-remove]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                delete eventoQuantita[this.dataset.eventoRemove];
+                renderEventoPiattiList();
+            });
+        });
+    }
+
+    const eventoSearchInput = document.getElementById('evento-search-input');
+    const eventoSuggerimenti = document.getElementById('evento-suggerimenti');
+
+    eventoSearchInput?.addEventListener('input', function() {
+        const query = this.value.trim().toLowerCase();
+        if (query.length < 1) {
+            eventoSuggerimenti.style.display = 'none';
+            return;
+        }
+        const disponibili = appData.piatti.filter(p =>
+            p.nome.toLowerCase().includes(query) && !(p.id in eventoQuantita)
+        );
+        if (disponibili.length === 0) {
+            eventoSuggerimenti.innerHTML = '<div class="sugg-empty">Nessun altro piatto trovato</div>';
+            eventoSuggerimenti.style.display = 'block';
+            return;
+        }
+        eventoSuggerimenti.innerHTML = disponibili.map(p => `
+            <div class="sugg-item" data-id="${p.id}">
+                <span class="sugg-name">${escapeHtml(p.nome)}</span>
+                <span class="sugg-meta">€ ${Number(p.prezzo).toFixed(2)}</span>
+            </div>
+        `).join('');
+        eventoSuggerimenti.style.display = 'block';
+
+        eventoSuggerimenti.querySelectorAll('.sugg-item').forEach(el => {
+            el.addEventListener('click', function() {
+                const id = this.dataset.id;
+                eventoQuantita[id] = 1;
+                eventoSearchInput.value = '';
+                eventoSuggerimenti.style.display = 'none';
+                renderEventoPiattiList();
+            });
+        });
+    });
+
+    document.addEventListener('click', function(e) {
+        const container = document.getElementById('calcolo-modo-evento');
+        if (container && eventoSuggerimenti && !eventoSearchInput?.contains(e.target) && !eventoSuggerimenti.contains(e.target)) {
+            eventoSuggerimenti.style.display = 'none';
+        }
+    });
+
+    // v7.6 — ultimo risultato calcolato in modalità Evento, tenuto per
+    // generare il PDF (solo uso interno: contiene costi e margini).
+    let ultimoCalcoloEvento = null;
+
+    document.getElementById('evento-calcola-btn')?.addEventListener('click', function() {
+        const container = document.getElementById('evento-risultato');
+        const iva = parseFloat(document.getElementById('evento-iva-percentuale').value) || 0;
+        const costiFissiPerc = parseFloat(document.getElementById('evento-costi-fissi-percentuale').value) || 0;
+
+        const righe = [];
+        let costoTotaleEvento = 0;
+        let ricavoTotaleEvento = 0;
+        let totaleCoperti = 0;
+        let hasRicetteVuote = false;
+        let hasZeroCosto = false;
+
+        Object.keys(eventoQuantita).forEach(piattoId => {
+            const qty = eventoQuantita[piattoId] || 0;
+            if (qty <= 0) return;
+            const piatto = getPiatto(piattoId);
+            if (!piatto) return;
+            const comps = getComposizioni(piattoId);
+            if (comps.length === 0) { hasRicetteVuote = true; return; }
+
+            let costoUnitario = 0;
+            comps.forEach(comp => {
+                const ing = getIngrediente(comp.ingredienteId);
+                if (!ing) return;
+                costoUnitario += calcolaCostoParziale(ing, comp.quantita, comp.umUsata || ing.um);
+                if (ing.costo === 0) hasZeroCosto = true;
+            });
+
+            const costoRiga = costoUnitario * qty;
+            const ricavoRiga = piatto.prezzo * qty;
+            costoTotaleEvento += costoRiga;
+            ricavoTotaleEvento += ricavoRiga;
+            totaleCoperti += qty;
+            righe.push({ nome: piatto.nome, qty, costoUnitario, costoRiga, ricavoRiga });
+        });
+
+        if (righe.length === 0) {
+            container.innerHTML = '<div class="empty-msg">Inserisci almeno una quantità maggiore di zero.</div>';
+            return;
+        }
+
+        const prezzoNettoIva = ricavoTotaleEvento / (1 + iva / 100);
+        const costiFissiVal = prezzoNettoIva * (costiFissiPerc / 100);
+        const margineLordo = prezzoNettoIva - costoTotaleEvento;
+        const margineNettoEst = margineLordo - costiFissiVal;
+        const foodCostPercNetto = prezzoNettoIva > 0 ? (costoTotaleEvento / prezzoNettoIva) * 100 : 0;
+
+        let badgeClass = 'green', badgeText = 'Ottimo Margine';
+        if (foodCostPercNetto > 40) { badgeClass = 'red'; badgeText = 'FC Troppo Alto'; }
+        else if (foodCostPercNetto > 33) { badgeClass = 'orange'; badgeText = 'Margine Ridotto'; }
+        else if (foodCostPercNetto > 27) { badgeClass = 'yellow'; badgeText = 'FC Medio'; }
+
+        const righeHtml = righe.map(r => `
+            <div style="display:flex; justify-content:space-between; font-size:14px; padding: 4px 0; border-bottom:1px solid var(--ios-border);">
+                <span style="color:var(--ios-text);">${escapeHtml(r.nome)} × ${r.qty}</span>
+                <span style="color:var(--ios-text-sec);">€ ${r.costoRiga.toFixed(2)} costo · € ${r.ricavoRiga.toFixed(2)} ricavo</span>
+            </div>
+        `).join('');
+
+        container.innerHTML = `
+            <div class="calcolo-box">
+                <div class="foodcost-badge ${badgeClass}">${badgeText} — FC ${foodCostPercNetto.toFixed(1)}%</div>
+                <div style="margin:10px 0; font-size:13px; color:var(--ios-text-sec);">${totaleCoperti} coperti su ${righe.length} piatti diversi</div>
+                ${righeHtml}
+                <div style="display:flex; justify-content:space-between; padding:8px 0 2px; margin-top:6px; border-top:1px solid var(--ios-border); font-weight:650;">
+                    <span>Costo materie prime totale</span><span>€ ${costoTotaleEvento.toFixed(2)}</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; padding:2px 0;"><span>Ricavo totale (IVA inclusa)</span><span>€ ${ricavoTotaleEvento.toFixed(2)}</span></div>
+                <div style="display:flex; justify-content:space-between; padding:2px 0; color:var(--ios-text-sec); font-size:12px;"><span>Ricavo netto IVA (${iva}%)</span><span>€ ${prezzoNettoIva.toFixed(2)}</span></div>
+                <div style="display:flex; justify-content:space-between; padding:2px 0; color:var(--ios-text-sec); font-size:12px;"><span>Costi fissi stimati (${costiFissiPerc}%)</span><span>€ ${costiFissiVal.toFixed(2)}</span></div>
+                <div style="display:flex; justify-content:space-between; padding:6px 0 2px; font-weight:650; color:var(--ios-green);"><span>Margine lordo</span><span>€ ${margineLordo.toFixed(2)}</span></div>
+                <div style="display:flex; justify-content:space-between; padding:2px 0; font-weight:650;"><span>Margine netto stimato</span><span>€ ${margineNettoEst.toFixed(2)}</span></div>
+                ${hasZeroCosto ? `<div class="warning-box" style="margin:10px 0 0;">⚠️ Uno o più ingredienti usati hanno costo zero. Il calcolo non è veritiero.</div>` : ''}
+                ${hasRicetteVuote ? `<div class="warning-box" style="margin:10px 0 0;">⚠️ Uno o più piatti selezionati hanno la ricetta vuota e sono stati esclusi dal totale.</div>` : ''}
+            </div>
+        `;
+
+        ultimoCalcoloEvento = {
+            righe, costoTotaleEvento, ricavoTotaleEvento, totaleCoperti,
+            prezzoNettoIva, costiFissiVal, margineLordo, margineNettoEst,
+            foodCostPercNetto, iva, costiFissiPerc, badgeClass, badgeText,
+            hasZeroCosto, hasRicetteVuote,
+            data: new Date().toLocaleDateString('it-IT')
+        };
+        const eventoPdfBtn = document.getElementById('evento-pdf-btn');
+        if (eventoPdfBtn) eventoPdfBtn.disabled = false;
+    });
+
+    // v7.6 — PDF dell'evento, SOLO uso interno: contiene costi e margini,
+    // per questo va tenuto ben distinto da qualsiasi documento da
+    // consegnare al cliente (per quello ci sono altri canali, come detto).
+    document.getElementById('evento-pdf-btn')?.addEventListener('click', function() {
+        if (!ultimoCalcoloEvento) {
+            showToast('❌ Prima calcola l\'evento!', 'error');
+            return;
+        }
+        const d = ultimoCalcoloEvento;
+        const btn = this;
+        btn.disabled = true;
+        btn.textContent = '⏳ Generazione PDF...';
+
+        function caricaLibrerieEvento(callback) {
+            if (typeof html2canvas !== 'undefined' && typeof window.jspdf !== 'undefined') {
+                callback();
+                return;
+            }
+            let loaded = 0;
+            const total = 2;
+            function checkLoaded() { loaded++; if (loaded === total) callback(); }
+            if (typeof html2canvas === 'undefined') {
+                const s1 = document.createElement('script');
+                s1.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+                s1.onload = checkLoaded;
+                s1.onerror = function() {
+                    showToast('❌ Errore nel caricamento di html2canvas.', 'error');
+                    btn.disabled = false;
+                    btn.textContent = '📄 Scarica PDF (uso interno)';
+                };
+                document.head.appendChild(s1);
+            } else checkLoaded();
+            if (typeof window.jspdf === 'undefined') {
+                const s2 = document.createElement('script');
+                s2.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+                s2.onload = checkLoaded;
+                s2.onerror = function() {
+                    showToast('❌ Errore nel caricamento di jsPDF.', 'error');
+                    btn.disabled = false;
+                    btn.textContent = '📄 Scarica PDF (uso interno)';
+                };
+                document.head.appendChild(s2);
+            } else checkLoaded();
+        }
+
+        caricaLibrerieEvento(function() {
+            try {
+                const container = document.createElement('div');
+                container.style.cssText = 'position:absolute;left:-9999px;top:0;width:800px;padding:28px 32px;background:white;font-family:-apple-system,Arial,sans-serif;color:#1e293b;';
+                document.body.appendChild(container);
+
+                const righeHtml = d.righe.map(r => `
+                    <tr>
+                        <td style="padding:6px 10px; border-bottom:1px solid #eef1f6;">${escapeHtml(r.nome)}</td>
+                        <td style="padding:6px 10px; border-bottom:1px solid #eef1f6; text-align:center;">${r.qty}</td>
+                        <td style="padding:6px 10px; border-bottom:1px solid #eef1f6; text-align:right;">€ ${r.costoRiga.toFixed(2)}</td>
+                        <td style="padding:6px 10px; border-bottom:1px solid #eef1f6; text-align:right;">€ ${r.ricavoRiga.toFixed(2)}</td>
+                    </tr>
+                `).join('');
+
+                container.innerHTML = `
+                    <div style="background:#fecaca; color:#7f1d1d; text-align:center; padding:6px; border-radius:8px; font-size:11px; font-weight:700; letter-spacing:0.5px; margin-bottom:14px;">
+                        🔒 DOCUMENTO RISERVATO — SOLO USO INTERNO, NON PER IL CLIENTE
+                    </div>
+                    <h1 style="font-size:22px; border-bottom:3px solid #34C759; padding-bottom:8px; margin:0 0 6px;">🎉 Preventivo Evento</h1>
+                    <div style="font-size:12px; color:#475569; margin-bottom:14px;">📅 ${d.data} · ${d.totaleCoperti} coperti su ${d.righe.length} piatti diversi · Food Cost Manager Plus</div>
+
+                    <h3 style="margin:10px 0 6px; font-size:15px;">📋 Piatti inclusi</h3>
+                    <table style="width:100%; border-collapse:collapse; margin-bottom:12px;">
+                        <thead>
+                            <tr style="background:#f1f5f9;">
+                                <th style="padding:7px 10px; text-align:left; border-bottom:2px solid #eef1f6; font-size:12px;">Piatto</th>
+                                <th style="padding:7px 10px; text-align:center; border-bottom:2px solid #eef1f6; font-size:12px;">Q.tà</th>
+                                <th style="padding:7px 10px; text-align:right; border-bottom:2px solid #eef1f6; font-size:12px;">Costo</th>
+                                <th style="padding:7px 10px; text-align:right; border-bottom:2px solid #eef1f6; font-size:12px;">Ricavo</th>
+                            </tr>
+                        </thead>
+                        <tbody>${righeHtml}
+                            <tr style="font-weight:700; border-top:3px solid #1e293b;">
+                                <td style="padding:9px 10px; font-size:13px;">TOTALE</td>
+                                <td style="padding:9px 10px; text-align:center; font-size:13px;">${d.totaleCoperti}</td>
+                                <td style="padding:9px 10px; text-align:right; font-size:13px;">€ ${d.costoTotaleEvento.toFixed(2)}</td>
+                                <td style="padding:9px 10px; text-align:right; font-size:13px;">€ ${d.ricavoTotaleEvento.toFixed(2)}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="background:#f8fafc; border-radius:12px; padding:12px; border:1px solid #eef1f6; margin:10px 0;">
+                        <h3 style="margin-top:0; margin-bottom:6px; font-size:14px;">📊 Dettaglio</h3>
+                        <div style="display:flex; justify-content:space-between; padding:2px 0; font-size:13px;"><span>Ricavo totale (IVA inclusa)</span><span><strong>€ ${d.ricavoTotaleEvento.toFixed(2)}</strong></span></div>
+                        <div style="display:flex; justify-content:space-between; padding:2px 0; color:#64748b; font-size:12px;"><span>Ricavo netto IVA (${d.iva}%)</span><span>€ ${d.prezzoNettoIva.toFixed(2)}</span></div>
+                        <div style="display:flex; justify-content:space-between; padding:2px 0; color:#64748b; font-size:12px;"><span>Costo materie prime totale</span><span>€ ${d.costoTotaleEvento.toFixed(2)}</span></div>
+                        <div style="display:flex; justify-content:space-between; padding:2px 0; color:#64748b; font-size:12px;"><span>Costi fissi stimati (${d.costiFissiPerc}%)</span><span>€ ${d.costiFissiVal.toFixed(2)}</span></div>
+                        <div style="display:flex; justify-content:space-between; padding:4px 0; font-weight:700; border-top:1px solid #eef1f6; margin-top:5px; padding-top:7px; color:#16a34a; font-size:14px;">
+                            <span>💰 Margine netto stimato</span>
+                            <span>€ ${d.margineNettoEst.toFixed(2)}</span>
+                        </div>
+                    </div>
+
+                    <div style="display:block; padding:7px; border-radius:24px; text-align:center; font-weight:700; font-size:15px; background:#e8f5e9; color:#2e7d32; margin:6px 0 10px;">
+                        ${d.badgeText} — Food Cost ${d.foodCostPercNetto.toFixed(1)}%
+                    </div>
+
+                    ${d.hasZeroCosto ? `<div style="background:#fef9c3; color:#854d0e; padding:7px 10px; border-radius:8px; margin:6px 0; font-size:12px;">⚠️ Attenzione: alcuni ingredienti usati hanno costo 0.</div>` : ''}
+                    ${d.hasRicetteVuote ? `<div style="background:#fef9c3; color:#854d0e; padding:7px 10px; border-radius:8px; margin:6px 0; font-size:12px;">⚠️ Uno o più piatti selezionati avevano la ricetta vuota e sono stati esclusi.</div>` : ''}
+
+                    <div style="margin-top:14px; font-size:10px; color:#94a3b8; text-align:center; border-top:1px solid #eef1f6; padding-top:10px;">
+                        Documento riservato, generato da Food Cost Manager Plus • ${d.data}
+                    </div>
+                `;
+
+                html2canvas(container, {
+                    scale: 2,
+                    backgroundColor: '#ffffff',
+                    logging: false,
+                    useCORS: true,
+                    allowTaint: true,
+                    width: 800
+                }).then(function(canvas) {
+                    const imgData = canvas.toDataURL('image/jpeg', 0.92);
+                    const { jsPDF } = window.jspdf;
+                    const pdf = new jsPDF('p', 'mm', 'a4');
+                    const pageWidth = 210;
+                    const pageHeight = 297;
+                    const imgWidth = pageWidth;
+                    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+                    let heightLeft = imgHeight;
+                    let position = 0;
+                    pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                    while (heightLeft > 2) {
+                        position = heightLeft - imgHeight;
+                        pdf.addPage();
+                        pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+                        heightLeft -= pageHeight;
+                    }
+
+                    const blob = pdf.output('blob');
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = `Preventivo_Evento_USO_INTERNO_${d.data.replace(/\//g, '-')}.pdf`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(link.href);
+
+                    document.body.removeChild(container);
+                    btn.disabled = false;
+                    btn.textContent = '📄 Scarica PDF (uso interno)';
+                    showToast('✅ PDF scaricato con successo!', 'success');
+                }).catch(function(err) {
+                    console.error('Errore html2canvas:', err);
+                    showToast('❌ Errore nella generazione del PDF. Riprova.', 'error');
+                    btn.disabled = false;
+                    btn.textContent = '📄 Scarica PDF (uso interno)';
+                    if (container.parentNode) document.body.removeChild(container);
+                });
+            } catch (e) {
+                console.error('Errore PDF Evento:', e);
+                showToast('❌ Errore nella generazione del PDF.', 'error');
+                btn.disabled = false;
+                btn.textContent = '📄 Scarica PDF (uso interno)';
+            }
+        });
     });
 
 
@@ -5981,7 +6714,7 @@
         const sizeKey = getSettings().menuFontSize || 'medium';
         const mult = menuFontSizeMultiplier(sizeKey);
         const fontStyleBlock = `<style>
-            .menu-preview-box { font-family: ${menuFontCssFamily(fontKey)}; }
+            .menu-preview-box, .menu-preview-box * { font-family: ${menuFontCssFamily(fontKey)}; }
             .menu-preview-box .menu-title { font-size: ${Math.round(30 * mult)}px; }
             .menu-preview-box .menu-sub { font-size: ${Math.round(14 * mult)}px; }
             .menu-preview-box .menu-cat { font-size: ${Math.round(15 * mult)}px; }
@@ -5993,18 +6726,18 @@
         </style>`;
         data.sections.forEach(sec => {
             if (!sec.items.length) return;
-            body += `<div class="menu-cat">${sec.cat}</div>`;
+            body += `<div class="menu-cat">${escapeHtml(sec.cat)}</div>`;
             sec.items.forEach(it => {
                 if (it.hasAll) hasAnyAllergen = true;
                 if (it.hasSurgelato) hasAnySurgelato = true;
                 const star = (it.hasAll ? ' *' : '') + (it.hasSurgelato ? ' ❄' : '');
-                const ings = it.ings.length ? it.ings.join(', ') : '';
+                const ings = it.ings.length ? escapeHtml(it.ings.join(', ')) : '';
                 const allText = it.hasAll
                     ? allergeniLabels(it.alls).join(', ')
                     : '';
                 body += `<div class="menu-dish">
                     <div class="menu-dish-row">
-                        <span class="menu-dish-name">${it.piatto.nome}${star}</span>
+                        <span class="menu-dish-name">${escapeHtml(it.piatto.nome)}${star}</span>
                         <span class="menu-dish-price">€ ${it.piatto.prezzo.toFixed(2)}</span>
                     </div>
                     ${ings ? `<div class="menu-dish-ings">${ings}</div>` : ''}
@@ -6020,8 +6753,8 @@
             legend += `<div class="menu-legend"><strong>❄</strong> Prodotto surgelato all'origine.</div>`;
         }
         box.innerHTML = `${fontStyleBlock}<div class="menu-preview-box">
-            <div class="menu-title">${titolo}</div>
-            ${sotto ? `<div class="menu-sub">${sotto}</div>` : ''}
+            <div class="menu-title">${escapeHtml(titolo)}</div>
+            ${sotto ? `<div class="menu-sub">${escapeHtml(sotto)}</div>` : ''}
             ${body}
             ${legend}
         </div>`;
@@ -6382,10 +7115,10 @@
             return `
                 <div class="card-item" data-archivio-id="${item.id}">
                     <div class="info" style="flex:1; min-width:0;">
-                        <div class="name">${item.nome}</div>
+                        <div class="name">${escapeHtml(item.nome)}</div>
                         <div class="detail">
                             <span class="tag">${item.dataArchivio || '—'}</span>
-                            ${item.categoria ? `<span class="tag">${item.categoria}</span>` : ''}
+                            ${item.categoria ? `<span class="tag">${escapeHtml(item.categoria)}</span>` : ''}
                         </div>
                         <div class="detail" style="margin-top:6px;">
                             Storico: <strong>€ ${(item.costoStorico || 0).toFixed(2)}</strong>
@@ -6438,7 +7171,7 @@
         det.style.display = 'block';
         const rows = live.dettagliAttuali.map(d => `
             <div style="display:flex; justify-content:space-between; font-size:14px; padding:4px 0; border-bottom:1px solid var(--ios-border);">
-                <span style="color:var(--ios-text);">${d.nome} (${d.qty} ${d.um})${d.mancante ? ' ⚠️' : ''}</span>
+                <span style="color:var(--ios-text);">${escapeHtml(d.nome)} (${d.qty} ${d.um})${d.mancante ? ' ⚠️' : ''}</span>
                 <span style="color:var(--ios-text-sec);">€ ${d.costo.toFixed(2)}</span>
             </div>
         `).join('');
@@ -6450,8 +7183,8 @@
             </div>
             <div class="section-title">Dettaglio archivio</div>
             <div class="calcolo-box">
-                <div style="font-size:20px; font-weight:700; margin-bottom:6px;">${item.nome}</div>
-                <div style="font-size:13px; color:var(--ios-text-sec); margin-bottom:12px;">Archiviato il ${item.dataArchivio}${item.categoria ? ' · ' + item.categoria : ''}</div>
+                <div style="font-size:20px; font-weight:700; margin-bottom:6px;">${escapeHtml(item.nome)}</div>
+                <div style="font-size:13px; color:var(--ios-text-sec); margin-bottom:12px;">Archiviato il ${item.dataArchivio}${item.categoria ? ' · ' + escapeHtml(item.categoria) : ''}</div>
                 <div class="list-container" style="padding:10px; background:var(--ios-card-secondary); border:none; margin-bottom:12px;">
                     <div style="font-size:13px; text-transform:uppercase; color:var(--ios-text-sec); margin-bottom:5px;">Ingredienti (costi attuali)</div>
                     ${rows}
@@ -6558,14 +7291,14 @@
                 // Foto: proporzioni originali, centrata, non stirata
                 const fotoHtml = d.piatto.immagine
                     ? `<div style="text-align:center; margin-bottom:14px;">
-                         <img src="${d.piatto.immagine}" alt="${d.piatto.nome}"
+                         <img src="${d.piatto.immagine}" alt="${escapeHtml(d.piatto.nome)}"
                               style="max-width:100%; max-height:150px; width:auto; height:auto; border-radius:12px; border:1px solid #e2e8f0; display:inline-block;">
                        </div>`
                     : '';
 
                 let dettagliHtml = d.dettagli.map(r => `
                     <tr>
-                        <td style="padding:6px 10px; border-bottom:1px solid #eef1f6;">${r.nome}</td>
+                        <td style="padding:6px 10px; border-bottom:1px solid #eef1f6;">${escapeHtml(r.nome)}</td>
                         <td style="padding:6px 10px; border-bottom:1px solid #eef1f6; text-align:center;">${r.qty} ${r.um}</td>
                         <td style="padding:6px 10px; border-bottom:1px solid #eef1f6; text-align:right;">€ ${r.costo.toFixed(2)}</td>
                     </tr>
@@ -6576,8 +7309,8 @@
                     <div style="display:flex; gap:16px; align-items:flex-start; margin-bottom:12px;">
                         <div style="flex:1; min-width:0;">
                             ${fotoHtml}
-                            <h1 style="font-size:24px; border-bottom:3px solid #34C759; padding-bottom:8px; margin:0 0 6px;">🧾 ${d.piatto.nome}</h1>
-                            <div style="color:#64748b; font-size:14px; margin-bottom:6px;">${d.piatto.categoria || 'N/A'} ${d.piatto.note ? '— ' + d.piatto.note : ''}</div>
+                            <h1 style="font-size:24px; border-bottom:3px solid #34C759; padding-bottom:8px; margin:0 0 6px;">🧾 ${escapeHtml(d.piatto.nome)}</h1>
+                            <div style="color:#64748b; font-size:14px; margin-bottom:6px;">${escapeHtml(d.piatto.categoria || 'N/A')} ${d.piatto.note ? '— ' + escapeHtml(d.piatto.note) : ''}</div>
                             <div style="font-size:12px; color:#475569;">📅 ${d.data} · Food Cost Manager Plus</div>
                         </div>
                         <div style="flex-shrink:0; text-align:center;">
@@ -6638,7 +7371,7 @@
                     </div>
 
                     ${d.hasZeroCosto ? `<div style="background:#fef9c3; color:#854d0e; padding:7px 10px; border-radius:8px; margin:6px 0; font-size:12px;">⚠️ Attenzione: alcuni ingredienti hanno costo 0. Aggiorna i prezzi.</div>` : ''}
-                    ${d.piatto.note ? `<div style="background:#f1f5f9;padding:7px 10px;border-radius:8px;margin:6px 0;font-size:12px;">📌 ${d.piatto.note}</div>` : ''}
+                    ${d.piatto.note ? `<div style="background:#f1f5f9;padding:7px 10px;border-radius:8px;margin:6px 0;font-size:12px;">📌 ${escapeHtml(d.piatto.note)}</div>` : ''}
 
                     <div style="margin-top:14px; font-size:10px; color:#94a3b8; text-align:center; border-top:1px solid #eef1f6; padding-top:10px;">
                         Documento generato da Food Cost Manager Plus • ${d.data}
@@ -6723,7 +7456,16 @@
     // RESET DATI
     // ============================================================
     document.getElementById('reset-btn').addEventListener('click', function() {
-        if (confirm('⚠️ AZIONE IRREVERSIBILE! \n\nVuoi davvero cancellare TUTTI i dati salvati?')) {
+        const collegatoAlCloud = !!(cloudUser && cloudLocaleId);
+        // v8.4 — se il locale è collegato al cloud, il reset ora cancella
+        // DAVVERO tutto, anche lì: prima cancellava solo il dispositivo,
+        // e alla prima sincronizzazione i vecchi dati cloud tornavano
+        // indietro, facendo sembrare il reset "non riuscito" — confusione
+        // reale soprattutto per chi usa l'app per la prima volta.
+        const messaggio = collegatoAlCloud
+            ? '⚠️ AZIONE IRREVERSIBILE!\n\nVuoi davvero cancellare TUTTI i dati salvati? Questo locale è collegato al cloud: verranno cancellati anche i dati lì, per chiunque sia collegato a questo stesso locale.'
+            : '⚠️ AZIONE IRREVERSIBILE!\n\nVuoi davvero cancellare TUTTI i dati salvati?';
+        showConfirmModal(messaggio, '⚠️', async function() {
             localStorage.removeItem('foodcost_manager_plus_v5');
             localStorage.removeItem(BG_LIGHT_KEY);
             localStorage.removeItem(BG_DARK_KEY);
@@ -6733,9 +7475,20 @@
             appData.listaSpesa = [];
             saveData(appData);
             document.querySelector('.header-home').style.setProperty('--ios-header-bg-image', 'none');
-            showToast('✅ Dati resettati allo stato iniziale.', 'info');
+            if (collegatoAlCloud) {
+                try {
+                    clearTimeout(saveCloudTimer);
+                    pendingCloudPush = true;
+                    await pushCloudData(true);
+                    showToast('✅ Dati resettati, anche sul cloud.', 'info');
+                } catch (e) {
+                    showToast('⚠️ Dati resettati su questo dispositivo, ma l\'invio al cloud è fallito: ' + (e && e.message ? e.message : 'errore sconosciuto') + '. Alla prossima sincronizzazione i vecchi dati potrebbero tornare.', 'error', 7000);
+                }
+            } else {
+                showToast('✅ Dati resettati allo stato iniziale.', 'info');
+            }
             location.reload();
-        }
+        }, true);
     });
 
     // ============================================================
@@ -6764,18 +7517,31 @@
                 let formatoRiconosciuto = 'solo_nomi';
 
                 lines.forEach((line) => {
-                    const parti = line.split(separatore);
-                    if (parti.length === 4) {
+                    const parti = line.split(separatore).map(p => p.trim());
+
+                    // v6.5 — un nome può contenere virgole interne (es. "Aglio, Fresco").
+                    // Riconosciamo il formato completo guardando dalla FINE della riga:
+                    // se le ultime 3 parti sono compatibili con costo/unità/scarto,
+                    // tutto il resto (virgole comprese) è il nome.
+                    const n = parti.length;
+                    const possibileScarto = n >= 4 ? parti[n - 1] : null;
+                    const possibileCosto = n >= 4 ? parti[n - 3] : null;
+                    const scartoValido = possibileScarto !== null && /^\d+$/.test(possibileScarto);
+                    const costoValido = possibileCosto !== null && !isNaN(parseFloat(possibileCosto.replace(',', '.')));
+
+                    if (n >= 4 && scartoValido && costoValido) {
                         formatoRiconosciuto = 'completo';
-                        const nome = parti[0].trim();
-                        const costo = parseFloat(parti[1].replace(',', '.')) || 0;
-                        const um = parti[2].trim() || 'Kg';
-                        const scarto = parseInt(parti[3]) || 0;
+                        const nome = parti.slice(0, n - 3).join(separatore === ',' ? ', ' : '; ').trim();
+                        const costo = parseFloat(parti[n - 3].replace(',', '.')) || 0;
+                        const um = parti[n - 2] || 'Kg';
+                        const scarto = parseInt(parti[n - 1]) || 0;
                         if (nome) { righeProcessate.push({ nome, costo, um, scarto }); }
                     } else if (parti.length === 1 && line.length > 0) {
                         righeProcessate.push({ nome: line, costo: 0, um: 'Kg', scarto: 0 });
                     } else if (parti.length > 1) {
-                        const nome = parti[0].trim();
+                        // Formato non riconosciuto come "completo": non scartiamo il resto
+                        // della riga, teniamo l'intera riga (virgole incluse) come nome.
+                        const nome = parti.join(separatore === ',' ? ', ' : '; ').trim();
                         if (nome) { righeProcessate.push({ nome, costo: 0, um: 'Kg', scarto: 0 }); }
                     }
                 });
@@ -6792,10 +7558,10 @@
                 const previewDiv = document.getElementById('import-preview');
                 
                 let formatoMsg = formatoRiconosciuto === 'completo' ? 'Formato completo (Nome, Costo, Unità, Scarto)' : 'Solo nomi (costo 0, unità Kg)';
-                infoDiv.innerHTML = `📄 <strong>${file.name}</strong> - Trovati ${righeProcessate.length} ingredienti. ${formatoMsg}`;
+                infoDiv.innerHTML = `📄 <strong>${escapeHtml(file.name)}</strong> - Trovati ${righeProcessate.length} ingredienti. ${formatoMsg}`;
                 
                 previewDiv.innerHTML = righeProcessate.slice(0, 15).map(r => 
-                    `<div class="item">• ${r.nome} ${r.costo > 0 ? '€'+r.costo.toFixed(2) : ''} (${r.um})${r.scarto > 0 ? ' scarto '+r.scarto+'%' : ''}</div>`
+                    `<div class="item">• ${escapeHtml(r.nome)} ${r.costo > 0 ? '€'+r.costo.toFixed(2) : ''} (${r.um})${r.scarto > 0 ? ' scarto '+r.scarto+'%' : ''}</div>`
                 ).join('') + (righeProcessate.length > 15 ? '...' : '');
                 previewDiv.style.display = 'block';
                 
@@ -6824,27 +7590,47 @@
         fill.style.width = '0%';
         status.innerHTML = '⏳ Importazione in corso...';
 
-        const existingNames = new Set(appData.ingredienti.map(i => normalizeName(i.nome)));
+        const existingMap = new Map();
+        appData.ingredienti.forEach(i => existingMap.set(normalizeName(i.nome), i));
         let added = 0;
-        let skipped = 0;
+        let updated = 0;
+        let invariati = 0;
         const total = importedItems.length;
 
         importedItems.forEach((item, index) => {
             const normalized = normalizeName(item.nome);
-            if (!existingNames.has(normalized)) {
-                appData.ingredienti.push({
+            const nuovoNome = item.nome.trim();
+            const nuovoCosto = item.costo || 0;
+            const nuovaUm = item.um || 'Kg';
+            const nuovoScarto = item.scarto || 0;
+            const esistente = existingMap.get(normalized);
+
+            if (!esistente) {
+                const nuovoIng = {
                     id: genId(),
-                    nome: item.nome.trim(),
-                    costo: item.costo || 0,
-                    um: item.um || 'Kg',
-                    scarto: item.scarto || 0
-                });
-                existingNames.add(normalized);
+                    nome: nuovoNome,
+                    costo: nuovoCosto,
+                    um: nuovaUm,
+                    scarto: nuovoScarto
+                };
+                appData.ingredienti.push(nuovoIng);
+                existingMap.set(normalized, nuovoIng);
                 added++;
             } else {
-                skipped++;
+                const costoCambiato = Math.abs(Number(esistente.costo || 0) - nuovoCosto) > 0.00005;
+                const qualcosaCambiato = costoCambiato || esistente.nome !== nuovoNome || esistente.um !== nuovaUm || Number(esistente.scarto || 0) !== nuovoScarto;
+                if (qualcosaCambiato) {
+                    if (costoCambiato) pushPrezzoStorico(esistente, esistente.costo, esistente.um);
+                    esistente.nome = nuovoNome;
+                    esistente.costo = nuovoCosto;
+                    esistente.um = nuovaUm;
+                    esistente.scarto = nuovoScarto;
+                    updated++;
+                } else {
+                    invariati++;
+                }
             }
-            
+
             const progressPerc = ((index + 1) / total) * 100;
             fill.style.width = progressPerc + '%';
         });
@@ -6856,10 +7642,11 @@
             <div class="success-msg">
                 ✅ Importazione completata!<br>
                 ➕ Aggiunti: ${added} nuovi ingredienti<br>
-                ⏭️ Saltati (già presenti): ${skipped}
+                🔄 Aggiornati (nome/prezzo/unità): ${updated}<br>
+                ✔️ Già identici, invariati: ${invariati}
             </div>
         `;
-        showToast(`✅ Importati ${added} ingredienti!`, 'success');
+        showToast(`✅ Importati: ${added} nuovi, ${updated} aggiornati`, 'success');
 
         document.getElementById('import-btn').disabled = true;
         document.getElementById('fileInput').value = '';
@@ -6871,6 +7658,76 @@
         renderIngredienti();
         aggiornaSelectMagazzino();
         aggiornaContatori();
+    });
+
+    // ============================================================
+    // LIBRERIA INGREDIENTI STANDARD (download da GitHub)
+    // v8.2 — funzione separata dall'import manuale: aggiunge SOLO gli
+    // ingredienti mancanti (mai tocca quelli già esistenti, prezzi
+    // compresi), e supporta gli allergeni, che il formato .txt/.csv
+    // dell'import manuale non può rappresentare comodamente.
+    // ============================================================
+    // Da aggiornare con il link "raw" del file su GitHub quando pronto,
+    // es. https://raw.githubusercontent.com/<utente>/<repo>/main/ingredienti_libreria.json
+    const LIBRERIA_INGREDIENTI_URL = 'https://raw.githubusercontent.com/Foodcostmanager/foodcost-app/refs/heads/main/ingredienti_libreria.json';
+
+    document.getElementById('libreria-download-btn')?.addEventListener('click', async function() {
+        const btn = this;
+        const status = document.getElementById('libreria-status');
+        const testoOriginale = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = '⏳ Scaricamento in corso...';
+        status.innerHTML = '';
+
+        try {
+            const risposta = await fetch(LIBRERIA_INGREDIENTI_URL);
+            if (!risposta.ok) throw new Error('Impossibile scaricare il file (' + risposta.status + ')');
+            const lista = await risposta.json();
+            if (!Array.isArray(lista) || lista.length === 0) throw new Error('Il file scaricato non contiene ingredienti validi');
+
+            const existingNames = new Set(appData.ingredienti.map(i => normalizeName(i.nome)));
+            const daAggiungere = lista.filter(item => item && item.nome && !existingNames.has(normalizeName(item.nome)));
+            const giaPresenti = lista.length - daAggiungere.length;
+
+            if (daAggiungere.length === 0) {
+                btn.disabled = false;
+                btn.textContent = testoOriginale;
+                status.innerHTML = `<div class="success-msg">✔️ Hai già tutti gli ingredienti della libreria (${giaPresenti} già presenti). Nessuna aggiunta necessaria.</div>`;
+                return;
+            }
+
+            btn.disabled = false;
+            btn.textContent = testoOriginale;
+
+            showConfirmModal(
+                `La libreria contiene ${lista.length} ingredienti.\n\n➕ ${daAggiungere.length} sono nuovi e verranno aggiunti (prezzo a 0, da impostare tu).\n✔️ ${giaPresenti} li hai già e restano invariati.\n\nProcedere?`,
+                '📥',
+                function() {
+                    daAggiungere.forEach(item => {
+                        appData.ingredienti.push({
+                            id: genId(),
+                            nome: item.nome.trim(),
+                            costo: 0,
+                            um: item.um || 'Kg',
+                            scarto: item.scarto || 0,
+                            allergeni: Array.isArray(item.allergeni) ? item.allergeni : [],
+                            surgelato: !!item.surgelato
+                        });
+                    });
+                    saveData(appData);
+                    renderIngredienti();
+                    aggiornaSelectMagazzino();
+                    aggiornaContatori();
+                    status.innerHTML = `<div class="success-msg">✅ Aggiunti ${daAggiungere.length} nuovi ingredienti. I prezzi sono a 0: ricordati di impostarli in base al tuo fornitore prima di usarli nel food cost.</div>`;
+                    showToast(`✅ Aggiunti ${daAggiungere.length} ingredienti dalla libreria`, 'success');
+                }
+            );
+        } catch (e) {
+            console.error('Errore libreria ingredienti:', e);
+            btn.disabled = false;
+            btn.textContent = testoOriginale;
+            status.innerHTML = `<div class="warning-box">❌ Errore nello scaricamento: ${escapeHtml(e.message || 'errore sconosciuto')}. Verifica la connessione e riprova.</div>`;
+        }
     });
 
     // ============================================================
@@ -6941,8 +7798,8 @@
         const s = getSettings();
         const menuFontSel = document.getElementById('menu-font-family');
         const menuSizeSel = document.getElementById('menu-font-size');
-        if (menuFontSel && menuFontSel.value !== s.menuFont) menuFontSel.value = s.menuFont || 'times';
-        if (menuSizeSel && menuSizeSel.value !== s.menuFontSize) menuSizeSel.value = s.menuFontSize || 'medium';
+        if (menuFontSel && menuFontSel.value !== s.menuFont) { menuFontSel.value = s.menuFont || 'times'; setChipSelectValue('menu-font-family-chips', s.menuFont || 'times', false); }
+        if (menuSizeSel && menuSizeSel.value !== s.menuFontSize) { menuSizeSel.value = s.menuFontSize || 'medium'; setChipSelectValue('menu-font-size-chips', s.menuFontSize || 'medium', false); }
         const locale = (s.nomeLocale || '').trim();
         const titolare = (s.nomeTitolare || '').trim();
         const line = document.getElementById('home-locale-line');
@@ -7118,6 +7975,24 @@
             else fbApp = firebase.app();
             fbAuth = firebase.auth();
             fbDb = firebase.firestore();
+            // v7.4 — cache locale persistente: evita di riscaricare per
+            // intero collezioni come "ingredienti" (che possono avere
+            // centinaia di voci) ogni volta che l'app viene aperta o torna
+            // in primo piano. Con la cache attiva, Firestore riutilizza i
+            // dati già presenti sul dispositivo e scarica dal server solo
+            // le differenze reali, riducendo drasticamente le letture
+            // contate ai fini della quota giornaliera gratuita.
+            try {
+                fbDb.enablePersistence({ synchronizeTabs: true }).catch(err => {
+                    // 'failed-precondition' = altra scheda già con la cache
+                    // attiva; 'unimplemented' = browser senza supporto.
+                    // In entrambi i casi l'app funziona comunque, solo
+                    // senza questo vantaggio di risparmio letture.
+                    console.warn('Cache persistente Firestore non attivabile:', err && err.code);
+                });
+            } catch (e) {
+                console.warn('enablePersistence non disponibile', e);
+            }
             return true;
         } catch (e) {
             console.error('Firebase init', e);
@@ -7138,11 +8013,13 @@
         const btn = document.getElementById('cloud-logout-btn');
         if (!txt) return;
         const loginBtn = document.getElementById('cloud-login-btn');
+        const forcePushBox = document.getElementById('cloud-force-push-box');
         if (cloudUser && cloudLocaleId) {
             if (dot) { dot.classList.add('on'); dot.classList.remove('off'); }
             txt.innerHTML = 'Cloud attivo · codice <strong id="cloud-code-label">…</strong>';
             if (btn) btn.hidden = false;
             if (loginBtn) loginBtn.hidden = true;
+            if (forcePushBox) forcePushBox.hidden = false;
             // fetch code label async
             fbDb.collection('locales').doc(cloudLocaleId).get().then(snap => {
                 const code = snap.exists ? (snap.data().code || cloudLocaleId) : cloudLocaleId;
@@ -7154,11 +8031,13 @@
             txt.textContent = 'Account collegato · scegli il locale';
             if (btn) btn.hidden = false;
             if (loginBtn) loginBtn.hidden = true;
+            if (forcePushBox) forcePushBox.hidden = true;
         } else {
             if (dot) { dot.classList.remove('on'); dot.classList.add('off'); }
             txt.textContent = 'Cloud: non collegato (solo dispositivo)';
             if (btn) btn.hidden = true;
             if (loginBtn) loginBtn.hidden = false;
+            if (forcePushBox) forcePushBox.hidden = true;
         }
     }
 
@@ -7272,21 +8151,47 @@
     async function createLocale(nome) {
         const code = genLocaleCode();
         const ref = fbDb.collection('locales').doc();
+        // v7.2 — ingredienti, piatti e composizioni (ricette) NON vanno più
+        // dentro il documento principale: oltre al limite di 1MB per
+        // documento di Firestore, tenerli come un unico blocco causava
+        // perdita di dati quando più persone modificavano il locale nello
+        // stesso momento (l'ultimo salvataggio sovrascriveva per intero il
+        // lavoro degli altri). Ognuno viene sincronizzato come voci
+        // separate, una per documento, nella propria sottocollezione.
+        const datiIniziali = {};
+        CLOUD_SUBCOLLECTIONS.forEach(k => { datiIniziali[k] = appData[k] || []; });
+        const mainData = Object.assign({}, appData);
+        CLOUD_SUBCOLLECTIONS.forEach(k => delete mainData[k]);
         const payload = {
             nome: nome || 'Il mio locale',
             code,
             ownerUid: cloudUser.uid,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
             updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
-            appData: appData
+            appData: mainData
         };
         await ref.set(payload);
+        cloudLocaleId = ref.id;
+        lastCloudMainJson = JSON.stringify(mainData);
+        // v8.3 — l'aggiornamento del documento utente (che dice "a quale
+        // locale appartengo") deve avvenire PRIMA di scrivere nelle
+        // sottocollezioni del nuovo locale: le regole Firestore verificano
+        // proprio questo campo per autorizzare la scrittura. Farlo dopo
+        // causava "Missing or insufficient permissions" sul primo invio
+        // di ingredienti/piatti/ricette di un locale appena creato.
         await fbDb.collection('users').doc(cloudUser.uid).set({
             email: cloudUser.email || '',
             localeId: ref.id,
             updatedAt: firebase.firestore.FieldValue.serverTimestamp()
         }, { merge: true });
-        cloudLocaleId = ref.id;
+        for (const key of CLOUD_SUBCOLLECTIONS) {
+            try {
+                await syncArrayToCloudCollection(key, datiIniziali[key]);
+                lastCloudSubJson[key] = JSON.stringify(datiIniziali[key]);
+            } catch (e) {
+                console.warn('Invio iniziale ' + key + ' al cloud fallito', e);
+            }
+        }
         return code;
     }
 
@@ -7305,9 +8210,31 @@
         return doc.data();
     }
 
+    // v7.2 — elenco delle liste che vengono sincronizzate come sottocollezioni
+    // (una voce = un documento) invece che come array dentro al documento
+    // principale del locale. Aggiungere qui un nuovo nome di campo (es.
+    // "magazzino") basta a estendere la stessa protezione anche a quello.
+    // v7.3 — l'ordine conta: piatti e composizioni vanno PRIMA degli
+    // ingredienti. Con centinaia di ingredienti, quella parte da sola può
+    // richiedere diversi secondi (va divisa in gruppi per il limite di
+    // Firestore); se l'operazione viene interrotta a metà (connessione
+    // debole, timeout, tentativo ripetuto), le collezioni elencate DOPO
+    // quella lenta rischiano di non essere mai inviate. Mettendo piatti e
+    // ricette per primi, arrivano al cloud anche se gli ingredienti
+    // (più corposi, meno urgenti) dovessero fallire o essere interrotti.
+    const CLOUD_SUBCOLLECTIONS = ['piatti', 'composizioni', 'ingredienti'];
+
     let cloudUnsub = null;
+    let subCloudUnsubs = []; // listener realtime, uno per ogni sottocollezione in CLOUD_SUBCOLLECTIONS
     let applyingCloudData = false;
-    let lastCloudJson = '';
+    let lastAppliedCloudJson = ''; // ultimo stato (principale + sottocollezioni unite) applicato in locale
+    let lastCloudMainJson = ''; // ultimo stato SENZA le sottocollezioni inviato con successo al cloud
+    let lastCloudSubJson = { ingredienti: '', piatti: '', composizioni: '' }; // ultimo array inviato con successo, per ciascuna sottocollezione
+    let lastCloudSubItemJson = { ingredienti: {}, piatti: {}, composizioni: {} }; // id -> ultimo JSON inviato per ciascuna voce, per scrivere solo ciò che è cambiato davvero
+    // v6.4 — evita che una modifica locale non ancora inviata al cloud
+    // venga sovrascritta da uno snapshot del listener realtime che
+    // arriva nel frattempo (race condition tra scheduleCloudSave e onSnapshot).
+    let pendingCloudPush = false;
     let cloudListenToastAt = 0;
 
     function normalizeCloudAppData(remote) {
@@ -7317,6 +8244,7 @@
         if (!remote.archivio) remote.archivio = [];
         if (!remote.ingredienti) remote.ingredienti = [];
         if (!remote.piatti) remote.piatti = [];
+        if (!remote.composizioni) remote.composizioni = [];
         if (!remote.settings) remote.settings = (appData && appData.settings) || {};
         if (remote.settings.menuFont === undefined) remote.settings.menuFont = 'times';
         if (remote.settings.menuFontSize === undefined) remote.settings.menuFontSize = 'medium';
@@ -7329,12 +8257,12 @@
         const data = normalizeCloudAppData(remote);
         if (!data) return false;
         const json = JSON.stringify(data);
-        if (json === lastCloudJson) return false;
-        lastCloudJson = json;
+        if (json === lastAppliedCloudJson) return false;
+        lastAppliedCloudJson = json;
         applyingCloudData = true;
         try {
             appData = data;
-            localStorage.setItem('foodcost_manager_plus_v5', JSON.stringify(appData));
+            safeSetItem('foodcost_manager_plus_v5', JSON.stringify(appData));
             try { renderAll(); aggiornaBranding(); } catch (e) {}
             if (opts && opts.toast) {
                 const now = Date.now();
@@ -7349,11 +8277,86 @@
         return true;
     }
 
+    // v7.5 — costruisce una mappa id -> JSON da un array, usata per capire
+    // quali voci sono realmente cambiate rispetto all'ultimo stato noto.
+    function buildItemJsonMap(arr) {
+        const map = {};
+        (arr || []).forEach(i => { if (i && i.id) map[i.id] = JSON.stringify(i); });
+        return map;
+    }
+
+    // v7.5 — sincronizza un array locale (ingredienti, piatti o composizioni)
+    // con la sua sottocollezione cloud dedicata, una voce per documento:
+    // un documento Firestore non può superare 1MB (limite superato tenendo
+    // tutto in un unico blocco), e soprattutto due persone che modificano
+    // voci diverse nello stesso momento non si cancellano più a vicenda,
+    // perché ogni voce è un documento a sé.
+    // IMPORTANTE: scrive solo le voci il cui contenuto è REALMENTE cambiato
+    // rispetto all'ultimo invio riuscito (confronto voce per voce, non solo
+    // "esiste ancora sì/no") — altrimenti ogni piccola modifica (es. un
+    // ingrediente aggiunto a UNA ricetta) riscriverebbe inutilmente anche
+    // tutte le altre voci invariate della collezione.
+    async function syncArrayToCloudCollection(collectionName, arr) {
+        const coll = fbDb.collection('locales').doc(cloudLocaleId).collection(collectionName);
+        const lista = (arr || []).filter(i => i && i.id);
+        const currentIds = new Set(lista.map(i => i.id));
+        const prevMap = lastCloudSubItemJson[collectionName] || {};
+        const idsToDelete = [];
+        Object.keys(prevMap).forEach(id => { if (!currentIds.has(id)) idsToDelete.push(id); });
+
+        const ops = [];
+        const nuovaMap = {};
+        lista.forEach(item => {
+            const json = JSON.stringify(item);
+            nuovaMap[item.id] = json;
+            if (prevMap[item.id] !== json) {
+                ops.push({ type: 'set', id: item.id, data: item });
+            }
+        });
+        idsToDelete.forEach(id => ops.push({ type: 'delete', id }));
+
+        const CHUNK = 450; // limite Firestore: 500 operazioni per batch, teniamo margine
+        for (let i = 0; i < ops.length; i += CHUNK) {
+            const batch = fbDb.batch();
+            ops.slice(i, i + CHUNK).forEach(op => {
+                const ref = coll.doc(String(op.id));
+                if (op.type === 'set') batch.set(ref, op.data);
+                else batch.delete(ref);
+            });
+            await batch.commit();
+        }
+        lastCloudSubItemJson[collectionName] = nuovaMap;
+    }
+
     async function pullCloudData() {
         if (!cloudLocaleId || !fbDb) return;
-        const snap = await fbDb.collection('locales').doc(cloudLocaleId).get();
-        if (!snap.exists) return;
-        applyCloudAppData(snap.data().appData, { toast: false });
+        // v6.9 — non scaricare (e sovrascrivere) dati dal cloud se abbiamo
+        // una modifica locale appena fatta e non ancora inviata: questa
+        // funzione viene richiamata anche al ritorno in primo piano
+        // dell'app (focus/visibilitychange), non solo alla connessione.
+        if (pendingCloudPush || applyingCloudData) return;
+        const mainSnap = await fbDb.collection('locales').doc(cloudLocaleId).get();
+        if (!mainSnap.exists) return;
+        const mainRemote = mainSnap.data().appData || {};
+        const combined = Object.assign({}, mainRemote);
+        for (const key of CLOUD_SUBCOLLECTIONS) {
+            let arr = [];
+            try {
+                const snap = await fbDb.collection('locales').doc(cloudLocaleId).collection(key).get();
+                arr = snap.docs.map(d => d.data());
+            } catch (e) {
+                console.warn('Lettura ' + key + ' dal cloud fallita', e);
+            }
+            // Migrazione da versioni precedenti: se la sottocollezione è
+            // ancora vuota ma il documento principale contiene un vecchio
+            // campo incorporato con questo nome, lo usiamo come base.
+            if (arr.length === 0 && Array.isArray(mainRemote[key]) && mainRemote[key].length > 0) {
+                arr = mainRemote[key];
+            }
+            lastCloudSubItemJson[key] = buildItemJsonMap(arr);
+            combined[key] = arr;
+        }
+        applyCloudAppData(combined, { toast: false });
     }
 
     function stopCloudListener() {
@@ -7361,42 +8364,128 @@
             try { cloudUnsub(); } catch (e) {}
             cloudUnsub = null;
         }
+        subCloudUnsubs.forEach(u => { try { u(); } catch (e) {} });
+        subCloudUnsubs = [];
     }
 
     function startCloudListener() {
         stopCloudListener();
         if (!cloudLocaleId || !fbDb) return;
+
+        // v8.6 — i dati principali e ciascuna sottocollezione arrivano da
+        // ascoltatori realtime separati; li combiniamo con un piccolo
+        // ritardo (debounce) così un aggiornamento che tocca più parti non
+        // genera applicazioni parziali in rapida sequenza. IMPORTANTE: non
+        // basta aspettare il documento principale — bisogna aspettare che
+        // OGNI sottocollezione abbia risposto almeno una volta, altrimenti
+        // "non ancora arrivato nulla da qui" veniva trattato come "è vuota
+        // per davvero", facendo sparire per un istante piatti/ricette che
+        // in realtà stavano solo impiegando un filo di tempo in più ad
+        // arrivare (es. su una connessione più lenta).
+        let ultimoMainRemote = null;
+        const ultimiSub = {};
+        const ricevutoSub = {};
+        CLOUD_SUBCOLLECTIONS.forEach(key => { ricevutoSub[key] = false; });
+        let combineTimer = null;
+
+        function scheduleCombinedApply() {
+            clearTimeout(combineTimer);
+            combineTimer = setTimeout(() => {
+                if (applyingCloudData || pendingCloudPush) return;
+                if (!ultimoMainRemote) return;
+                if (CLOUD_SUBCOLLECTIONS.some(key => !ricevutoSub[key])) return;
+                const combined = Object.assign({}, ultimoMainRemote);
+                CLOUD_SUBCOLLECTIONS.forEach(key => {
+                    const arr = ultimiSub[key] || [];
+                    lastCloudSubItemJson[key] = buildItemJsonMap(arr);
+                    combined[key] = arr;
+                });
+                applyCloudAppData(combined, { toast: true });
+            }, 150);
+        }
+
         cloudUnsub = fbDb.collection('locales').doc(cloudLocaleId).onSnapshot(
             function(snap) {
                 if (!snap.exists) return;
-                // Evita di riapplicare mentre stiamo salvando noi
-                if (applyingCloudData) return;
-                applyCloudAppData(snap.data().appData, { toast: true });
+                if (applyingCloudData || pendingCloudPush) return;
+                ultimoMainRemote = snap.data().appData || {};
+                scheduleCombinedApply();
             },
             function(err) {
-                console.warn('Cloud listener', err);
+                console.warn('Cloud listener (dati principali)', err);
             }
+        );
+
+        subCloudUnsubs = CLOUD_SUBCOLLECTIONS.map(key =>
+            fbDb.collection('locales').doc(cloudLocaleId).collection(key).onSnapshot(
+                function(snap) {
+                    if (applyingCloudData || pendingCloudPush) return;
+                    ultimiSub[key] = snap.docs.map(d => d.data());
+                    ricevutoSub[key] = true;
+                    scheduleCombinedApply();
+                },
+                function(err) {
+                    console.warn('Cloud listener (' + key + ')', err);
+                }
+            )
         );
     }
 
     function scheduleCloudSave() {
         if (applyingCloudData) return;
         if (!cloudUser || !cloudLocaleId || !fbDb) return;
+        pendingCloudPush = true;
         clearTimeout(saveCloudTimer);
-        saveCloudTimer = setTimeout(() => { pushCloudData(); }, 900);
+        saveCloudTimer = setTimeout(() => {
+            pushCloudData().catch(e => {
+                console.error('Cloud save (auto) failed', e);
+                showToast('⚠️ Invio al cloud non riuscito: ' + (e && e.message ? e.message : 'errore sconosciuto') + '. I tuoi dati restano salvi su questo dispositivo, ma NON sono ancora sul cloud.', 'error', 6000);
+            });
+        }, 900);
     }
 
-    async function pushCloudData() {
+    async function pushCloudData(force) {
         if (applyingCloudData) return;
-        if (!cloudUser || !cloudLocaleId || !fbDb) return;
+        if (!cloudUser || !cloudLocaleId || !fbDb) { pendingCloudPush = false; return; }
+        // v7.2 — inviamo separatamente: 1) i dati principali (magazzino,
+        // lista spesa, archivio, impostazioni), un unico documento piccolo;
+        // 2) ciascuna delle sottocollezioni (ingredienti, piatti,
+        // composizioni), voce per voce. Inviamo ogni parte solo se è
+        // davvero cambiata rispetto all'ultimo invio riuscito.
+        const mainData = Object.assign({}, appData);
+        CLOUD_SUBCOLLECTIONS.forEach(k => delete mainData[k]);
+        const mainJson = JSON.stringify(mainData);
         try {
-            lastCloudJson = JSON.stringify(appData);
-            await fbDb.collection('locales').doc(cloudLocaleId).set({
-                appData: appData,
-                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-            }, { merge: true });
+            if (force || mainJson !== lastCloudMainJson) {
+                const rimuoviCampiVecchi = {};
+                // rimuove anche un eventuale vecchio campo incorporato da
+                // versioni precedenti a questa ristrutturazione
+                CLOUD_SUBCOLLECTIONS.forEach(k => { rimuoviCampiVecchi[k] = firebase.firestore.FieldValue.delete(); });
+                await fbDb.collection('locales').doc(cloudLocaleId).set({
+                    appData: Object.assign({}, mainData, rimuoviCampiVecchi),
+                    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                }, { merge: true });
+                lastCloudMainJson = mainJson;
+            }
+            for (const key of CLOUD_SUBCOLLECTIONS) {
+                const arr = appData[key] || [];
+                const json = JSON.stringify(arr);
+                if (force || json !== lastCloudSubJson[key]) {
+                    await syncArrayToCloudCollection(key, arr);
+                    lastCloudSubJson[key] = json;
+                }
+            }
         } catch (e) {
             console.warn('Cloud save failed', e);
+            throw e;
+        } finally {
+            // v7.7 — non riapriamo subito l'ascolto degli aggiornamenti in
+            // arrivo dal cloud: un'eco tardiva, partita da PRIMA di questo
+            // invio ma arrivata in ritardo per la rete, potrebbe altrimenti
+            // sovrascrivere per qualche istante la modifica appena fatta
+            // (che sul cloud c'è già, ma non è ancora "risalita" a tutti
+            // i canali di ascolto). Qualche secondo di margine risolve.
+            setTimeout(() => { pendingCloudPush = false; }, 4000);
         }
     }
 
@@ -7529,7 +8618,7 @@
             resetPasswordRequest();
         });
         document.getElementById('auth-skip-btn')?.addEventListener('click', () => {
-            localStorage.setItem(CLOUD_SKIP_KEY, 'true');
+            safeSetItem(CLOUD_SKIP_KEY, 'true');
             showAuthOverlay(false);
             showToast('Modalità solo dispositivo. Puoi collegare il cloud da Impostazioni.', 'info', 3500);
             mostraSetupSeServe();
@@ -7575,7 +8664,12 @@
             try { await fbAuth.signOut(); } catch (e) {}
             cloudUser = null;
             cloudLocaleId = null;
-            lastCloudJson = '';
+            lastAppliedCloudJson = '';
+            lastCloudMainJson = '';
+            lastCloudSubJson = { ingredienti: '', piatti: '', composizioni: '' };
+            lastCloudSubItemJson = { ingredienti: {}, piatti: {}, composizioni: {} };
+            pendingCloudPush = false;
+            clearTimeout(saveCloudTimer);
             updateCloudStatusUI();
             showToast('Disconnesso dal cloud', 'info');
         });
@@ -7644,6 +8738,29 @@
             } catch (e) {
                 if (err) err.textContent = e.message || 'Errore nella creazione del locale';
                 showToast(e.message || 'Errore nella creazione del locale', 'error', 3500);
+            }
+        });
+
+        document.getElementById('cloud-force-push-btn')?.addEventListener('click', async () => {
+            const err = document.getElementById('cloud-force-push-error');
+            if (err) err.textContent = '';
+            if (!cloudUser || !cloudLocaleId) return;
+            const conferma = confirm('Questa azione SOVRASCRIVE i dati sul cloud con quelli presenti su questo dispositivo.\n\nQualunque altro dispositivo collegato a questo locale riceverà questi dati al posto dei propri.\n\nContinuare?');
+            if (!conferma) return;
+            const btn = document.getElementById('cloud-force-push-btn');
+            const testoOriginale = btn ? btn.textContent : '';
+            try {
+                if (btn) { btn.disabled = true; btn.textContent = 'Invio in corso…'; }
+                // Forza l'invio immediato, ignorando il debounce di scheduleCloudSave.
+                pendingCloudPush = true;
+                clearTimeout(saveCloudTimer);
+                await pushCloudData(true);
+                showToast('✅ Dati inviati al cloud', 'success', 3000);
+            } catch (e) {
+                if (err) err.textContent = e.message || 'Errore nell\'invio al cloud';
+                showToast(e.message || 'Errore nell\'invio al cloud', 'error', 3500);
+            } finally {
+                if (btn) { btn.disabled = false; btn.textContent = testoOriginale; }
             }
         });
 
@@ -7739,7 +8856,11 @@
                     await fbAuth.signOut();
                     cloudUser = null;
                     cloudLocaleId = null;
-                    lastCloudJson = '';
+                    lastAppliedCloudJson = '';
+                    lastCloudMainJson = '';
+                    lastCloudSubJson = { ingredienti: '', piatti: '', composizioni: '' };
+                    lastCloudSubItemJson = { ingredienti: {}, piatti: {}, composizioni: {} };
+                    pendingCloudPush = false;
                     updateCloudStatusUI();
                     showToast('Disconnesso dal cloud', 'info');
                 } catch (e) {
@@ -7792,12 +8913,5 @@
         addPressFeedback('.btn-sm');
     }, 300);
 </script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js').catch(() => {});
-            });
-        }
-    </script>
 </body>
 </html>
