@@ -1,0 +1,5571 @@
+[
+ {
+  "nome": "'Nduja (Calabrian Spicy Salami)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Anchovies",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Anchovies in Oil",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Anchovies in Salt",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Vinegar",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Balsamic Vinegar of Modena",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Balsamic Vinegar of Modena PGI",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Water",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Tonic Water",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Agar Agar",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Garlic",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Garlic Powder",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Lamb",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Lamb, Fatty Cuts",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Lamb, Lean Cuts",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Lamb Pluck (Offal)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Lamb Chops",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Agretti (Salsola Soda)",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Apricots",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Dried Apricot Flesh",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pure Alcohol",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Anchovies",
+  "um": "Kg",
+  "scarto": 30,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Dried Bay Leaves",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Sour Cherries",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Amaretto di Saronno",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Low-Proof Amaro (Bitter Liqueur)",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "High-Proof Amaro (Bitter Liqueur)",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Amaro Averna",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Amaro Montenegro",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Starch",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Cornstarch",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pineapple",
+  "um": "Pezzi",
+  "scarto": 20
+ },
+ {
+  "nome": "Pineapple in Syrup",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Duck",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "River Eel",
+  "um": "Kg",
+  "scarto": 15,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Sea Eel",
+  "um": "Kg",
+  "scarto": 15,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Marinated Eel",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Star Anise",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Aperitifs",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Aperol",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Raw Peanuts",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "arachidi"
+  ]
+ },
+ {
+  "nome": "Roasted Peanuts",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "arachidi"
+  ]
+ },
+ {
+  "nome": "Roasted Salted Peanuts",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "arachidi"
+  ]
+ },
+ {
+  "nome": "Lobster",
+  "um": "Kg",
+  "scarto": 35,
+  "allergeni": [
+   "crostacei"
+  ]
+ },
+ {
+  "nome": "Oranges",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Orange Zest",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Canned Orange Soda",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Herring",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Smoked Herring",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Marinated Herring",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Salted Herring",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Asiago",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Wild Asparagus",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Field Asparagus",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Greenhouse Asparagus",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Canned Asparagus",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Lobster (European)",
+  "um": "Kg",
+  "scarto": 30,
+  "allergeni": [
+   "crostacei"
+  ]
+ },
+ {
+  "nome": "Oats",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Avocado",
+  "um": "Pezzi",
+  "scarto": 25
+ },
+ {
+  "nome": "Rum Baba",
+  "um": "Pezzi",
+  "scarto": 0
+ },
+ {
+  "nome": "Babaco",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Soaked Salt Cod",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Dried Salt Cod",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Banana",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Red Beetroot",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Fresh Basil",
+  "um": "Kg",
+  "scarto": 5
+ },
+ {
+  "nome": "Ground Dried Basil",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Diet Carbonated Drinks",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Swiss Chard",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Canned Swiss Chard",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Cream Puffs",
+  "um": "Pezzi",
+  "scarto": 0
+ },
+ {
+  "nome": "Lager Beer",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Dark Beer",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Petit Beurre Biscuits",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Milk Biscuits",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine",
+   "latte"
+  ]
+ },
+ {
+  "nome": "Shortbread Biscuits",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Wholemeal Biscuits",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Baby Biscuits",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Chocolate-Coated Biscuits",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Ladyfinger Biscuits (Savoiardi)",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Wafer Biscuits",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Breakfast Biscuit",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Bitto PDO",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Beef Brain",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Beef Heart",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Beef Liver",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Canned Boiled Beef in Jelly",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Beef Tongue",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Corned Beef Tongue",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Beef Bone Marrow",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Beef Spleen",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Beef Lung",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Beef Kidney",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Beef Blood",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Beef Tripe",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Bra (Cheese)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Brandy",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Sea Bass",
+  "um": "Kg",
+  "scarto": 45,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Fresh Sea Bass, Boned",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Frozen Sea Bass",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Bresaola",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Brie",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Brioche",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Brioche with Custard Cream",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Brioche with Jam",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Broccoli Rabe (Rapini)",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Head Broccoli",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Romanesco Broccoli",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Meat and Vegetable Broth",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Mixed Meat Broth",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Stock Cube Broth",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Hen Broth",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Vegetable Broth",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Candied Orange Peel",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Chocolate Pudding",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Vanilla Pudding",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Burrata",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Burrini (Butter-Filled Cheese)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Butter",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Peanut Butter",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte",
+   "arachidi"
+  ]
+ },
+ {
+  "nome": "Lactose-Free Butter",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Unsweetened Cocoa Powder",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Sweetened Instant Cocoa Powder",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Caciocavallo",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Smoked Caciocavallo",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Caciotta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Smoked Caciotta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Roman Sheep's Milk Caciotta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Tuscan Caciotta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Fresh Caciottina",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "American-Style Coffee, Brewed",
+  "um": "Tazza",
+  "scarto": 0
+ },
+ {
+  "nome": "Espresso Bar Coffee, Brewed",
+  "um": "Tazza",
+  "scarto": 0
+ },
+ {
+  "nome": "Green Coffee Beans",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Decaffeinated Coffee, Brewed",
+  "um": "Tazza",
+  "scarto": 0
+ },
+ {
+  "nome": "Decaffeinated Roasted Ground Coffee",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Moka Coffee, Brewed",
+  "um": "Tazza",
+  "scarto": 0
+ },
+ {
+  "nome": "Decaffeinated Instant Coffee Powder",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Decaffeinated Instant Coffee, Brewed",
+  "um": "Tazza",
+  "scarto": 0
+ },
+ {
+  "nome": "Instant Coffee Powder",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Instant Coffee, Brewed",
+  "um": "Tazza",
+  "scarto": 0
+ },
+ {
+  "nome": "Roasted Ground Coffee",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Squid",
+  "um": "Kg",
+  "scarto": 25,
+  "allergeni": [
+   "molluschi"
+  ]
+ },
+ {
+  "nome": "Frozen Squid",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "molluschi"
+  ]
+ },
+ {
+  "nome": "Camembert",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Campari",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Candied Fruit",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Cinnamon",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Cannoli with Custard Cream",
+  "um": "Pezzi",
+  "scarto": 0
+ },
+ {
+  "nome": "Capocollo",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Capers in Vinegar",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Kid (Goat)",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Roe Deer Leg",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Roe Deer Back",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Fruit Candies",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Mint Candies",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Hard Candies",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Soft Toffee Candies",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Artichokes",
+  "um": "Kg",
+  "scarto": 40
+ },
+ {
+  "nome": "Frozen Artichokes",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Baby Artichokes in Vinegar",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Baby Artichokes in Oil",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Cardamom Seeds",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Cardoons",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Carrots",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Carp",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Chestnuts",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Dried Chestnuts",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Castelmagno PDO",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Wether Mutton, Fatty Cuts",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Wether Mutton, Lean Cuts",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Wether Mutton, Semi-Fatty Cuts",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Horse Meat",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Horse Heart",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Horse Liver",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Caviar",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Salmon Roe",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Cauliflower",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Brussels Sprouts",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Branching Green Sprouting Broccoli",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Red Cabbage",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Green Cabbage",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Tuscan Kale (Cavolo Nero)",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Kohlrabi",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Canned Chickpeas",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Dried Chickpeas",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Candied Citron",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Grey Mullet",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Mixed Breakfast Cereals",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Grouper",
+  "um": "Kg",
+  "scarto": 25,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Deep-Water Grouper",
+  "um": "Kg",
+  "scarto": 25,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Frozen Grouper",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Certosino (Cheese)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Cucumbers",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Cucumbers in Brine",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Gherkins in Vinegar",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Champagne",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Cheddar",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Cherry Brandy",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Pork Cracklings",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Chicory",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Catalogna Chicory",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Cutting Chicory",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Witloof Chicory (Belgian Endive)",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Cherries",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Wild Boar Meat",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Wild Boar Leg",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Wild Boar Shoulder",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Milk Chocolate",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "White Chocolate",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Chocolate with Hazelnuts",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "frutta a guscio"
+  ]
+ },
+ {
+  "nome": "Dark Chocolate",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Gianduja Chocolate",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Onions",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Dried Onions",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Small Onions (Pearl Onions)",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Pickled Pearl Onions",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Coca-Cola",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Watermelon",
+  "um": "Kg",
+  "scarto": 30
+ },
+ {
+  "nome": "Cognac",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Easter Dove Cake (Colomba)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Sugared Almonds (Confetti)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Rabbit, Fatty Cuts",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Rabbit, Lean Cuts",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Rabbit, Semi-Fatty Cuts",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Rabbit Offal",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Ice Cream Cone",
+  "um": "Pezzi",
+  "scarto": 0
+ },
+ {
+  "nome": "Coppa (Cured Pork)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Coppa di Parma",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Coriander Seeds",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Canned Corned Beef",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Cotechino",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Cooked Cotechino",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Mussel",
+  "um": "Kg",
+  "scarto": 30,
+  "allergeni": [
+   "molluschi"
+  ]
+ },
+ {
+  "nome": "Frozen Mussels",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "molluschi"
+  ]
+ },
+ {
+  "nome": "Cheese Crackers",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine",
+   "latte"
+  ]
+ },
+ {
+  "nome": "Wholemeal Crackers",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Unsalted Crackers",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Salted Crackers",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Fat-Free Crackers",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Crispbread (Cracotte)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Sauerkraut",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Chocolate-Hazelnut Spread",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "frutta a guscio"
+  ]
+ },
+ {
+  "nome": "Pastry Cream",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Crème Caramel",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Watercress",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Croissant",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Jam Tart",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Wheat Bran",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Culatello di Zibello PDO",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Cumin Seeds",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Turmeric Powder",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Curry Powder",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Stock Cubes",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Vegetable Stock Cubes",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Daikon Radish",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Fresh Dates",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Dried Dates",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Common Dentex",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Frozen Common Dentex",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Dolce Verde (Cheese)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Saccharin-Based Sweetener",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Aspartame Sweetener",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fructose Sweetener",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Saccharin Sweetener",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Edam",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Aged Edam",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Frozen Edamame",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "soia"
+  ]
+ },
+ {
+  "nome": "Emmental",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Chives",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Beef Extract",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pheasant",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Beans",
+  "um": "Kg",
+  "scarto": 5
+ },
+ {
+  "nome": "Dried Adzuki Beans",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Dried Borlotti Beans",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Dried Cannellini Beans",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Canned Beans",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Dried Mung Beans",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Black Beans",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Kidney Beans",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Dried Beans",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Green Beans",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Canned Green Beans",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Guinea Fowl",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Guinea Fowl Leg",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Guinea Fowl Breast",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Oat Flour",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Chestnut Flour",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Chickpea Flour",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Coconut Flour",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Spelt Flour",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Wholemeal Wheat Flour",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Wheat Flour Type 0",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Wheat Flour Type 00",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Wheat Flour Type 1",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Wheat Flour Type 2",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Durum Wheat Flour",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Buckwheat Flour",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Kamut Flour",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Cornmeal (Maize Flour)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Barley Flour",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Quinoa Flour",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Rice Flour",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Wholemeal Rye Flour",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Semi-Wholemeal Rye Flour",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Low-Fat Soy Flour",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "soia"
+  ]
+ },
+ {
+  "nome": "Full-Fat Soy Flour",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "soia"
+  ]
+ },
+ {
+  "nome": "Milk Flour (Baby Cereal)",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Manitoba Flour",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Pizza Flour",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Fava Beans",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Dried Fava Beans",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fernet Branca",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Feta",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Melba Toast (Rusks)",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Sweet Melba Toast",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Wholemeal Melba Toast",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Vitamin-Enriched Melba Toast",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Wholemeal Rye Crispbread",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Figs",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Prickly Pears",
+  "um": "Kg",
+  "scarto": 30
+ },
+ {
+  "nome": "Oven-Dried Figs with Almonds",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Sun-Dried Figs",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Dried Figs",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fennel",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Fennel Seeds",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Barley Flakes",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Oat Flakes",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Wheat Bran Flakes",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Low-Fat Cottage Cheese",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Corn Flakes",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Rice Flakes",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fior di Latte",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Fiore Sardo PDO",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Courgette Flowers",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Focaccia",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Turnip Greens",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Fontina",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Processed Cheese Spread",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Low-Fat Cheese Spread",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Gorgonzola and Mascarpone Cheese",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Pit-Aged Cheese (Formaggio di Fossa)",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Cream Cheese (Philadelphia-Style)",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Strawberries",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Friarielli (Broccoli Rabe)",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Frosibot",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Durum Wheat",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Soft Wheat",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Honey Fungus Mushrooms",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Chanterelle Mushrooms",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Dried Chanterelle Mushrooms",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Canned Mushrooms",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Caesar's Mushrooms",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Porcinelli Mushrooms",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Porcini Mushrooms",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Cultivated Button Mushrooms",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Dried Mushrooms",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Dried Shiitake Mushrooms",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Mushrooms in Oil",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Morel Mushrooms",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Hen",
+  "um": "Kg",
+  "scarto": 30
+ },
+ {
+  "nome": "Lake Shrimp",
+  "um": "Kg",
+  "scarto": 30,
+  "allergeni": [
+   "crostacei"
+  ]
+ },
+ {
+  "nome": "Frozen Shrimp",
+  "um": "Kg",
+  "scarto": 25,
+  "allergeni": [
+   "crostacei"
+  ]
+ },
+ {
+  "nome": "Prawn",
+  "um": "Kg",
+  "scarto": 30,
+  "allergeni": [
+   "crostacei"
+  ]
+ },
+ {
+  "nome": "Dried Food-Grade Gelatine",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Chocolate Ice Cream",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fruit Ice Cream",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fior di Latte Ice Cream",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Wheat Germ",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Alfalfa Sprouts",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Orange Ice Lolly",
+  "um": "Pezzi",
+  "scarto": 0
+ },
+ {
+  "nome": "Pickled Mixed Vegetables (Giardiniera) in Vinegar",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Mixed Vegetables (Giardiniera) in Oil",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Gin",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Sunflower Seeds",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Barilla Potato Gnocchi",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "De Cecco Potato Gnocchi",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Chewing Gum",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Gorgonzola",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Gorgonzola with Walnuts",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte",
+   "frutta a guscio"
+  ]
+ },
+ {
+  "nome": "Fresh Gouda",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Aged Gouda",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Grana Cheese",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Crab",
+  "um": "Kg",
+  "scarto": 35,
+  "allergeni": [
+   "crostacei"
+  ]
+ },
+ {
+  "nome": "Canned Crab Meat",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "crostacei"
+  ]
+ },
+ {
+  "nome": "Lemon Granita",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Soft Wheat Semolina (Granito)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Grappa",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Breadsticks",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Wholemeal Breadsticks",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Gruyère",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Halibut",
+  "um": "Kg",
+  "scarto": 25,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Endive",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Rice Salad",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Curly Endive",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Fresh Irish Moss (Seaweed)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Italico Cheese (Bel Paese-Style)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Persimmon",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Ketchup",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Kiwi",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Dried Kombu Seaweed",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Raspberries",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Lardo (Cured Pork Fat)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Buffalo Milk",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Goat Milk",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Almond Milk",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "latte",
+   "frutta a guscio"
+  ]
+ },
+ {
+  "nome": "Sheep Milk",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Soy Milk",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "soia"
+  ]
+ },
+ {
+  "nome": "Sweetened Condensed Cow's Milk",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Whole Cow's Milk",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Whole Milk Powder",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Whole UHT Cow's Milk",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Vitamin-Enriched Whole Cow's Milk",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Semi-Skimmed Cow's Milk",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Semi-Skimmed Milk Powder",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Semi-Skimmed UHT Cow's Milk",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Vitamin-Enriched Semi-Skimmed Cow's Milk",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Skimmed Cow's Milk",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Skimmed Milk Powder",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Skimmed UHT Cow's Milk",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Evaporated Milk",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Latteria Cheese",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Sand Smelt (Latterini)",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Lettuce",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Round Lettuce",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Cutting Lettuce",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Canned Lentils",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Dried Lentils",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Hare Leg",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Fresh Compressed Yeast",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Baking Powder",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Limes",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Limoncello",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Lemon",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Lemon Zest",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Flax Seeds",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Sweet Liquorice",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Dessert Liqueurs",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Pike",
+  "um": "Kg",
+  "scarto": 25,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Snail",
+  "um": "Kg",
+  "scarto": 40,
+  "allergeni": [
+   "molluschi"
+  ]
+ },
+ {
+  "nome": "Sea Snails",
+  "um": "Kg",
+  "scarto": 40,
+  "allergeni": [
+   "molluschi"
+  ]
+ },
+ {
+  "nome": "De-Bittered Lupin Beans",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "lupini"
+  ]
+ },
+ {
+  "nome": "Canned Fruit Salad",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Dried Marjoram",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Mayonnaise",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "uova"
+  ]
+ },
+ {
+  "nome": "Corn (Maize)",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Raw Sweet Corn",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Canned Sweet Corn",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Mandarin Oranges and Clementines",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Mandarins",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Sweet Almonds",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "frutta a guscio"
+  ]
+ },
+ {
+  "nome": "Mango",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Beef Brisket",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Beef Chuck (Cappello del Prete)",
+  "um": "Kg",
+  "scarto": 5
+ },
+ {
+  "nome": "Beef Sirloin (Roast Beef)",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Beef Rib Steak (Fiorentina)",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Beef Topside",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Beef Fillet",
+  "um": "Kg",
+  "scarto": 5
+ },
+ {
+  "nome": "Beef Eye Round",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Beef Cheek",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Beef Burger Patty",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Ground Beef",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Beef Knuckle",
+  "um": "Kg",
+  "scarto": 10,
+  "allergeni": [
+   "frutta a guscio"
+  ]
+ },
+ {
+  "nome": "Beef Short Rib Cut (Reale)",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Beef Rump",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Beef Silverside",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Beef Shank (Ossobuco)",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Margarine",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Vegetable Margarine",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Jam (Apricot, Fig, Quince, Peach, Plum)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Jam (Sour Cherry, Cherry, Marasca Grape)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Jam (Regular and Whole-Fruit Style)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Reduced-Sugar Jam",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Apricot Jam",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Orange Marmalade",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Plum Jam",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Egg Marsala",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "uova"
+  ]
+ },
+ {
+  "nome": "Classic Marsala Wine",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Martini Bianco",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Martini Rosso",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Mascarpone",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Apple",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Quince",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Dried Apple Flesh",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pomegranates",
+  "um": "Kg",
+  "scarto": 30
+ },
+ {
+  "nome": "Aubergines (Eggplant)",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Aubergines in Oil",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Summer Melon",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Winter Melon",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Blue Whiting",
+  "um": "Kg",
+  "scarto": 25,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Fresh Mint",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Dried Mint",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Chocolate Snack Cakes",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Jam-Filled Snack Cakes",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Filled Snack Cakes",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Sponge Cake Snack Bars",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Meringue",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "uova"
+  ]
+ },
+ {
+  "nome": "Cod",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Frozen Cod",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Mezcal",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Honey",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Blueberry",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Miso",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "soia"
+  ]
+ },
+ {
+  "nome": "Montasio",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Mulberry",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Blackberry",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Pork Mortadella",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pork and Beef Mortadella",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Musky Octopus (Moscardino)",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "molluschi"
+  ]
+ },
+ {
+  "nome": "Mozzarella",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Buffalo Mozzarella",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Muesli",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Hake",
+  "um": "Kg",
+  "scarto": 25,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Frozen Hake",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Natto",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Loquats",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Hazelnuts",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "frutta a guscio"
+  ]
+ },
+ {
+  "nome": "Coconut",
+  "um": "Pezzi",
+  "scarto": 35
+ },
+ {
+  "nome": "Nutmeg",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Walnuts",
+  "um": "Kg",
+  "scarto": 25,
+  "allergeni": [
+   "frutta a guscio"
+  ]
+ },
+ {
+  "nome": "Dried Walnuts",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "frutta a guscio"
+  ]
+ },
+ {
+  "nome": "Dried Nori Seaweed",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Goose",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Coconut Oil",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Rapeseed Oil",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Wheat Germ Oil",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Vitamin-Enriched Corn Oil",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Olive Oil",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Extra Virgin Olive Oil",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Vitamin-Enriched Olive Oil",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Palm Oil",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Peanut Oil",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "arachidi"
+  ]
+ },
+ {
+  "nome": "Sunflower Oil",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Corn Oil",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Mixed Seed Oil",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Sesame Oil",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "sesamo"
+  ]
+ },
+ {
+  "nome": "Soybean Oil",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "soia"
+  ]
+ },
+ {
+  "nome": "Grapeseed Oil",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Preserved Table Olives",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Black Olives",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Green Olives",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Frozen Shi Drum (Ombrina)",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Fresh Sea Bream",
+  "um": "Kg",
+  "scarto": 45,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Frozen Sea Bream",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Fresh Oregano",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Ground Dried Oregano",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Nettle",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Pearl Barley",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Instant Barley Coffee Powder",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Barley Coffee, Brewed",
+  "um": "Tazza",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Oyster",
+  "um": "Pezzi",
+  "scarto": 50,
+  "allergeni": [
+   "molluschi"
+  ]
+ },
+ {
+  "nome": "Sheep Heart",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Sheep Liver",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Smooth-Hound Shark (Palombo)",
+  "um": "Kg",
+  "scarto": 25,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Sponge Cake",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "American-Style Sandwich Bread",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Smoked Bacon",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Rolled Pancetta",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pork Pancetta",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Lean Pancetta",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Flat Pancetta",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pandoro",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Milk Bread",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine",
+   "latte"
+  ]
+ },
+ {
+  "nome": "Olive Bread",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Common Bread",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Seasoned Bread",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Durum Wheat Bread",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Wheat and Rye Bread",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Rye Bread",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Crispy Rye Bread",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Soy Bread",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine",
+   "soia"
+  ]
+ },
+ {
+  "nome": "Breadcrumbs",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Wholemeal Bread",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Type 0 Bread, Large Loaf",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Type 0 Bread",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Type 00 Bread",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Toasted Bread",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Panettone",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Olive Oil Bread Rolls",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Cooking Cream, 15% Fat",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Cream, 20% Fat",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Whipping Cream, 35% Fat",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Low-Cholesterol Cream",
+  "um": "Litri",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Papaya",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Paprika Powder",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Parmesan",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Scialatielli Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Fresh Egg Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine",
+   "uova"
+  ]
+ },
+ {
+  "nome": "Giovanni Rana Filled Egg Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine",
+   "uova"
+  ]
+ },
+ {
+  "nome": "Rana Fresh Egg Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine",
+   "uova"
+  ]
+ },
+ {
+  "nome": "Dried Egg Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine",
+   "uova"
+  ]
+ },
+ {
+  "nome": "Almond Paste",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "frutta a guscio"
+  ]
+ },
+ {
+  "nome": "Olive Paste (Tapenade)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Durum Wheat Semolina Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Gragnano Durum Wheat Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Gragnano Durum Wheat Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Agnesi Durum Wheat Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Barilla Durum Wheat Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "De Cecco Durum Wheat Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Divella Durum Wheat Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Garofalo Durum Wheat Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "La Molisana Durum Wheat Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Rummo Durum Wheat Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Voiello Durum Wheat Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Wholemeal Durum Wheat Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Handmade Fresh Pasta ✋",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine",
+   "uova"
+  ]
+ },
+ {
+  "nome": "Shortcrust Pastry",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Barilla Wholemeal Pasta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Barilla Gluten-Free Pasta",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "De Cecco Gluten-Free Pasta",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Divella Gluten-Free Pasta",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Garofalo Gluten-Free Pasta",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "La Molisana Gluten-Free Pasta",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Rummo Gluten-Free Pasta",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Puff Pastry",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Meal-Replacement Diet Products",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Coconut Pastries",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pastorella (Cheese)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Potatoes",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Sweet Potatoes",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Potato Starch",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "New Potatoes",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Instant Mashed Potato Powder",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Bagged Potato Crisps",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Sheep Meat",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pecorino",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Grating Pecorino",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Fresh Pecorino",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Pecorino Romano",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Black Pepper",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Chilli Powder",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Dried Hot Chilli Pepper",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Fresh Hot Chilli Pepper",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Sweet Peppers",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Yellow Peppers",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Red Peppers",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Peppers in Vinegar",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pear",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Peach",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Peach in Syrup",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Perch",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "John Dory",
+  "um": "Kg",
+  "scarto": 45,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Swordfish",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Piadina Romagnola Flatbread",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Adult Pigeon",
+  "um": "Kg",
+  "scarto": 30
+ },
+ {
+  "nome": "Young Pigeon (Squab)",
+  "um": "Kg",
+  "scarto": 30
+ },
+ {
+  "nome": "Pine Nuts",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Peas",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Canned Peas",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Canned Peas, Drained",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Dried Peas",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Frozen Peas",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Pistachios",
+  "um": "Kg",
+  "scarto": 25,
+  "allergeni": [
+   "frutta a guscio"
+  ]
+ },
+ {
+  "nome": "Dried Pistachios",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "frutta a guscio"
+  ]
+ },
+ {
+  "nome": "Roasted Salted Pistachios",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "frutta a guscio"
+  ]
+ },
+ {
+  "nome": "Pizza with Tomato",
+  "um": "Pezzi",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Pizza with Tomato and Mozzarella",
+  "um": "Pezzi",
+  "scarto": 0,
+  "allergeni": [
+   "glutine",
+   "latte"
+  ]
+ },
+ {
+  "nome": "Plaice",
+  "um": "Kg",
+  "scarto": 25,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Polenta",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Chicken Wings",
+  "um": "Kg",
+  "scarto": 30
+ },
+ {
+  "nome": "Chicken Thigh",
+  "um": "Kg",
+  "scarto": 30
+ },
+ {
+  "nome": "Chicken Livers",
+  "um": "Kg",
+  "scarto": 30
+ },
+ {
+  "nome": "Whole Chicken",
+  "um": "Kg",
+  "scarto": 30
+ },
+ {
+  "nome": "Chicken Breast",
+  "um": "Kg",
+  "scarto": 30
+ },
+ {
+  "nome": "Chicken Giblets",
+  "um": "Kg",
+  "scarto": 30
+ },
+ {
+  "nome": "Octopus",
+  "um": "Kg",
+  "scarto": 25,
+  "allergeni": [
+   "molluschi"
+  ]
+ },
+ {
+  "nome": "Frozen Octopus",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "molluschi"
+  ],
+  "surgelato": true
+ },
+ {
+  "nome": "Salad Tomatoes",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Ripe Tomatoes",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Canned Peeled Tomatoes in Juice",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Sun-Dried Tomatoes",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Tomatoes in Oil",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Tomato Paste (25% Dry Matter)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Tomato Paste (8% Dry Matter)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Tomato Puree (30% Dry Matter)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Peeled Tomato",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Grapefruit",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Pink Grapefruit",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Popcorn",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Leeks",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Port Wine",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Parsley",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Dried Parsley",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Cooked Ham",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Smoked Cooked Ham",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Lean Cooked Ham",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Cured Ham (Prosciutto Crudo)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Smoked Cured Ham",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Lean Cured Ham",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Prosciutto di Parma PDO",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Prosciutto di San Daniele PDO",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Smoked Provola",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Mild Small Provolone",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Provolone",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Spicy Provolone",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Plums",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Greengage Plums",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Dried Prunes",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Puntarelle (Catalogna Chicory Shoots)",
+  "um": "Kg",
+  "scarto": 30
+ },
+ {
+  "nome": "Quail",
+  "um": "Kg",
+  "scarto": 30
+ },
+ {
+  "nome": "Treviso Late Radicchio PGI",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Red Radicchio",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Green Radicchio",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Frog",
+  "um": "Kg",
+  "scarto": 50
+ },
+ {
+  "nome": "Monkfish",
+  "um": "Kg",
+  "scarto": 30,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Turnips",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Radishes",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Skate (Ray)",
+  "um": "Kg",
+  "scarto": 35,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Rum",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Blackcurrant",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Redcurrant",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Amberjack",
+  "um": "Kg",
+  "scarto": 30
+ },
+ {
+  "nome": "Sheep's Milk Ricotta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Cow's Milk Ricotta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Cow and Sheep's Milk Ricotta",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Full-Fat German-Style Ricotta (Quark)",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Low-Fat German-Style Ricotta (Quark)",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Arborio Rice",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Polished Rice",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Carnaroli Rice",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Husked Rice (Wholegrain)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Puffed Rice",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Parboiled Rice",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Vialone Nano Rice",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Robiola",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Roquefort",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Turbot",
+  "um": "Kg",
+  "scarto": 30,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Fresh Rosemary",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Dried Rosemary",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Rocket (Arugula)",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Cacciatore Salami",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Cooking Salami",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pork Salami",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pork and Beef Salami",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fabriano Salami",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Felino Salami",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Milano Salami",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Napoli Salami",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Traditional Homestyle Salami",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Hungarian-Style Salami",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Savoury Snack Crackers",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Cooking Salt",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Salmon",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Smoked Salmon",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Salmon in Brine",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Worcestershire Sauce",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Liver Sausage",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Pork and Beef Sausage",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Pork Sausage",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Dried Pork Sausage",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Sage",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Ground Dried Sage",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Sambuca",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Sea Bream (Sarago)",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Sardine",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Salted Sardines",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Sardines in Oil",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Shallot",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Scamorza",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Smoked Scamorza",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Escarole",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Malt Syrup",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine"
+  ]
+ },
+ {
+  "nome": "Drink Syrup",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Black Salsify (Scorzonera)",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Celery",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "sedano"
+  ]
+ },
+ {
+  "nome": "Celeriac",
+  "um": "Kg",
+  "scarto": 25,
+  "allergeni": [
+   "sedano"
+  ]
+ },
+ {
+  "nome": "Beef Tallow",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Semolina",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Mustard",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "senape"
+  ]
+ },
+ {
+  "nome": "Mustard Seeds",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "senape"
+  ]
+ },
+ {
+  "nome": "Cuttlefish",
+  "um": "Kg",
+  "scarto": 25,
+  "allergeni": [
+   "molluschi"
+  ]
+ },
+ {
+  "nome": "Frozen Cuttlefish",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "molluschi"
+  ]
+ },
+ {
+  "nome": "Sesame Seeds",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "sesamo"
+  ]
+ },
+ {
+  "nome": "Mackerel Fillets in Oil",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Fresh Mackerel",
+  "um": "Kg",
+  "scarto": 25,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Mackerel",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Mackerel in Brine",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Shoyu Soy and Wheat Sauce",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine",
+   "soia"
+  ]
+ },
+ {
+  "nome": "Sweet Soda",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Frozen Cheese Sofficini (Breaded Cheese Pockets)",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Sole",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Frozen Sole",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Soy Steak (Textured Soy Protein)",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "soia"
+  ]
+ },
+ {
+  "nome": "Soy Sprouts",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "soia"
+  ]
+ },
+ {
+  "nome": "Soybeans",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "soia"
+  ]
+ },
+ {
+  "nome": "Calabrian Soppressata",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Processed Cheese Slices",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Speck",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Sea Bass (Spigola)",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Spinach",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Canned Spinach",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Orange Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Grapefruit Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Aromatic Sparkling Wines",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Demi-Sec Sparkling Wines",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Dry Sparkling Wines",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Squacquerone di Romagna PGI",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Grey Partridge Leg",
+  "um": "Kg",
+  "scarto": 30
+ },
+ {
+  "nome": "Soaked Stockfish",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Dried Stockfish",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Stracchino",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Buffalo Stracciatella",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Lard",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Preserved Apricot Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Preserved Pineapple Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Concentrated Orange Juice",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Preserved Unsweetened Orange Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Unsweetened Orange and Grapefruit Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Beetroot Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Preserved Carrot Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Preserved Fruit Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Preserved Lemon Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Lemon Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Preserved Unsweetened Mandarin Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Mandarin Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Preserved Unsweetened Apple Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Pomegranate Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Preserved Pear Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Preserved Peach Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Preserved Tomato Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Preserved Unsweetened Grapefruit Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Preserved Sweetened Grapefruit Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Spinach Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Preserved Unsweetened Grape Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Preserved Tropical Fruit Juice",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Pork Steak",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pork, Lean Cuts",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pork, Semi-Fatty Cuts",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pork Leg",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pork Ribs",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Pork Heart",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pork Liver",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pork Fillet",
+  "um": "Kg",
+  "scarto": 5
+ },
+ {
+  "nome": "Guanciale (Cured Pork Cheek)",
+  "um": "Kg",
+  "scarto": 5
+ },
+ {
+  "nome": "Pork Loin",
+  "um": "Kg",
+  "scarto": 5
+ },
+ {
+  "nome": "Ground Pork",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pork Blood",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Pork Shank",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Pork Trotters",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "Surimi",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Turkey Hen Wing",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Turkey Hen Thigh",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Turkey Hen Breast",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Turkey Wing",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Turkey Thigh",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Whole Turkey",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Turkey Breast",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Snow Peas (Mangetout)",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Taleggio",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Tamari Soy Sauce",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "soia"
+  ]
+ },
+ {
+  "nome": "Tapioca",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Taralli (Pugliese Savoury Rings)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Black Truffle",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Decaffeinated Loose-Leaf Tea",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Decaffeinated Tea, Brewed",
+  "um": "Tazza",
+  "scarto": 0
+ },
+ {
+  "nome": "Loose-Leaf Tea",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Tea, Brewed",
+  "um": "Tazza",
+  "scarto": 0
+ },
+ {
+  "nome": "Tempeh",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Tequila",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Thyme",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Ground Dried Thyme",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Tench",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Tiramisù",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Herbal Tea, Brewed",
+  "um": "Tazza",
+  "scarto": 0
+ },
+ {
+  "nome": "Tofu",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "soia"
+  ]
+ },
+ {
+  "nome": "Tuna",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ],
+  "surgelato": true
+ },
+ {
+  "nome": "Tuna in Brine, Drained",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Tuna in Oil, Drained",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Jerusalem Artichoke",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Thrush (Game Bird)",
+  "um": "Kg",
+  "scarto": 35
+ },
+ {
+  "nome": "Almond Nougat (Torrone)",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "frutta a guscio"
+  ]
+ },
+ {
+  "nome": "Chocolate Cake",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Margherita Sponge Cake",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Tortellini",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Dried Tortellini",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Flying Squid (Totano)",
+  "um": "Kg",
+  "scarto": 25,
+  "allergeni": [
+   "molluschi"
+  ]
+ },
+ {
+  "nome": "Red Mullet",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Trout",
+  "um": "Kg",
+  "scarto": 20,
+  "allergeni": [
+   "pesce"
+  ]
+ },
+ {
+  "nome": "Duck Egg",
+  "um": "Pezzi",
+  "scarto": 0,
+  "allergeni": [
+   "uova"
+  ]
+ },
+ {
+  "nome": "Hen Egg White",
+  "um": "Pezzi",
+  "scarto": 0,
+  "allergeni": [
+   "uova"
+  ]
+ },
+ {
+  "nome": "Whole Hen Egg",
+  "um": "Pezzi",
+  "scarto": 0,
+  "allergeni": [
+   "uova"
+  ]
+ },
+ {
+  "nome": "Whole Egg Powder",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "uova"
+  ]
+ },
+ {
+  "nome": "Hen Egg Yolk",
+  "um": "Pezzi",
+  "scarto": 0,
+  "allergeni": [
+   "uova"
+  ]
+ },
+ {
+  "nome": "Goose Egg",
+  "um": "Pezzi",
+  "scarto": 0,
+  "allergeni": [
+   "uova"
+  ]
+ },
+ {
+  "nome": "Turkey Egg",
+  "um": "Pezzi",
+  "scarto": 0,
+  "allergeni": [
+   "uova"
+  ]
+ },
+ {
+  "nome": "Grapes",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Sultanas / Raisins",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Lamb's Lettuce (Valerian/Corn Salad)",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Vanilla Extract (Alcohol-Based)",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Vanillin",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Scallop (Fan Shell)",
+  "um": "Kg",
+  "scarto": 35
+ },
+ {
+  "nome": "Frozen Vegetables and Pulses",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Sweet Vermouth",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Dry Vermouth",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Savoy Cabbage",
+  "um": "Kg",
+  "scarto": 20
+ },
+ {
+  "nome": "White Wine",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Rosé Wine",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Red Wine",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Veal, Lean Cuts",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Veal, Semi-Fatty Cuts",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Veal Pluck (Offal)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Veal Topside",
+  "um": "Kg",
+  "scarto": 10
+ },
+ {
+  "nome": "Veal Fillet",
+  "um": "Kg",
+  "scarto": 5
+ },
+ {
+  "nome": "Veal Knuckle",
+  "um": "Kg",
+  "scarto": 10,
+  "allergeni": [
+   "frutta a guscio"
+  ]
+ },
+ {
+  "nome": "Veal Shank (Ossobuco)",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Veal Scaloppine",
+  "um": "Kg",
+  "scarto": 5
+ },
+ {
+  "nome": "Young Beef, Fatty Cuts",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Young Beef, Lean Cuts",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Young Beef, Semi-Fatty Cuts",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Young Beef, Fatty Cuts (Various)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Young Beef, Lean Cuts (Various)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Young Beef, Semi-Fatty Cuts (Various)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Vodka",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Clam",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "molluschi"
+  ]
+ },
+ {
+  "nome": "Canned Clams in Natural Juice",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "molluschi"
+  ]
+ },
+ {
+  "nome": "Frozen Clams",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "molluschi"
+  ],
+  "surgelato": true
+ },
+ {
+  "nome": "Dried Wakame Seaweed",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Wasabi Paste",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Whisky",
+  "um": "Litri",
+  "scarto": 0
+ },
+ {
+  "nome": "Frankfurter (Wurstel)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Chicken Frankfurter",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Turkey Frankfurter",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Whole Milk Yogurt",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Whole Milk Yogurt with Cereals and Malt",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "glutine",
+   "latte"
+  ]
+ },
+ {
+  "nome": "Whole Milk Fruit Yogurt",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Low-Fat Fruit Yogurt",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Semi-Skimmed Milk Yogurt",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Skimmed Milk Yogurt",
+  "um": "Kg",
+  "scarto": 0,
+  "allergeni": [
+   "latte"
+  ]
+ },
+ {
+  "nome": "Saffron",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Zampone (Stuffed Pig's Trotter)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Fresh Ginger",
+  "um": "Kg",
+  "scarto": 15
+ },
+ {
+  "nome": "Pumpkin",
+  "um": "Kg",
+  "scarto": 25
+ },
+ {
+  "nome": "Trombetta Squash",
+  "um": "Kg",
+  "scarto": 30
+ },
+ {
+  "nome": "Sugar (Sucrose)",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Raw Cane Sugar",
+  "um": "Kg",
+  "scarto": 0
+ },
+ {
+  "nome": "Courgettes (Zucchini)",
+  "um": "Kg",
+  "scarto": 10
+ }
+]
