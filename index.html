@@ -6,13 +6,13 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-    <title>Food Cost Manager Plus v9.4</title>
+    <title>Food Cost Manager Plus v9.7</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         /* ============================================================
-           v9.4 — fix: salvare un ingrediente esistente (anche solo il prezzo) poteva essere bloccato per errore dal controllo di compatibilità unità, che scattava a ogni salvataggio invece che solo quando l'unità base viene davvero cambiata
+           v9.7 — migliorata la leggibilità del file Excel esportato: intestazioni bloccate in alto scorrendo e colonne già larghe al punto giusto, utile specialmente su schermi piccoli
            ============================================================ */
         :root {
             --ios-bg: #06080F;
@@ -2697,9 +2697,33 @@
         .search-wrap {
             position: relative;
         }
+        /* v9.5 — pulsante "✕" per svuotare in un tocco un campo di ricerca
+           che mostra ancora il piatto/ingrediente scelto in precedenza,
+           invece di dover cancellare il testo lungo a mano. */
+        .search-clear-btn {
+            display: none;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 26px;
+            height: 26px;
+            border: none;
+            border-radius: 50%;
+            background: var(--ios-card-secondary);
+            color: var(--ios-text-sec);
+            font-size: 14px;
+            line-height: 1;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+        .search-clear-btn.show {
+            display: flex;
+        }
         .search-wrap input[type="text"] {
             width: 100%;
-            padding: 12px 14px;
+            padding: 12px 42px 12px 14px;
             border: 1px solid var(--ios-border);
             border-radius: 12px;
             font-size: 16px;
@@ -4146,6 +4170,7 @@
                 <label>Cerca o scegli il piatto</label>
                 <div class="search-wrap">
                     <input type="text" id="ricetta-piatto-search" placeholder="Digita il nome del piatto..." autocomplete="off">
+                    <button type="button" class="search-clear-btn" id="ricetta-piatto-search-clear" aria-label="Svuota ricerca">✕</button>
                     <div id="ricetta-piatto-suggerimenti" class="suggerimenti-box"></div>
                 </div>
                 <input type="hidden" id="ricetta-piatto-select" value="">
@@ -4228,6 +4253,7 @@
                 <label>Cerca o scegli il piatto</label>
                 <div class="search-wrap">
                     <input type="text" id="calcolo-piatto-search" placeholder="Digita il nome del piatto..." autocomplete="off">
+                    <button type="button" class="search-clear-btn" id="calcolo-piatto-search-clear" aria-label="Svuota ricerca">✕</button>
                     <div id="calcolo-piatto-suggerimenti" class="suggerimenti-box"></div>
                 </div>
                 <input type="hidden" id="calcolo-piatto-select" value="">
@@ -4324,6 +4350,15 @@
             </p>
             <button class="btn-add" id="libreria-download-btn" style="margin:0;">📥 Scarica libreria ingredienti standard</button>
             <div id="libreria-status" style="margin-top:10px;"></div>
+        </div>
+
+        <div class="section-title">Esportazione dati</div>
+        <div class="form-container" style="padding:16px;">
+            <p style="color:var(--ios-text-sec); font-size:15px; margin-bottom:10px;">
+                Scarica un file Excel con tutto il tuo lavoro: ingredienti, piatti, ricette e archivio food cost, su fogli separati — utile per backup, analisi personali o per il commercialista.
+            </p>
+            <button class="btn-add" id="export-excel-btn" style="margin:0;">📊 Esporta tutto in Excel (XLSX)</button>
+            <div id="export-excel-status" style="margin-top:10px;"></div>
         </div>
         <hr>
         <div class="section-title">Zona Pericolo</div>
@@ -4713,6 +4748,9 @@ const FC_EN_MESSAGES = {
     "La password deve avere almeno 6 caratteri.": "The password must be at least 6 characters long.",
     "Lettura": "Reading",
     "Libreria Ingredienti Standard": "Standard ingredient library",
+    "Esportazione dati": "Data export",
+    "Scarica un file Excel con tutto il tuo lavoro: ingredienti, piatti, ricette e archivio food cost, su fogli separati — utile per backup, analisi personali o per il commercialista.": "Download an Excel file with all your work: ingredients, dishes, recipes and food cost archive, on separate sheets — useful for backups, your own analysis, or your accountant.",
+    "📊 Esporta tutto in Excel (XLSX)": "📊 Export everything to Excel (XLSX)",
     "Lista Spesa": "Shopping list",
     "Lista della Spesa": "Shopping list",
     "Lista della spesa": "Shopping list",
@@ -5798,7 +5836,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // VERSIONE APP — unico punto da aggiornare ad ogni nuovo rilascio.
     // Aggiorna SOLO questa riga: titolo pagina e guida si aggiornano da soli.
     // ============================================================
-    const APP_VERSION = '9.4';
+    const APP_VERSION = '9.7';
 
     let appData = loadData();
     setTimeout(() => { try { renderAllergeniGrid([]); } catch(e) {} }, 0);
@@ -6028,6 +6066,25 @@ document.addEventListener('DOMContentLoaded', function () {
     function getPiatto(id) { return appData.piatti.find(p => p.id === id); }
     function getComposizioni(piattoId) { return appData.composizioni.filter(c => c.piattoId === piattoId); }
     function normalizeName(str) { return str.trim().toLowerCase().replace(/\s+/g, ' '); }
+
+    // v9.5 — collega un pulsante "✕" a un campo di ricerca: lo mostra solo
+    // quando il campo contiene testo, e lo svuota in un tocco riusando
+    // esattamente la stessa logica già presente sul campo (dispatch di un
+    // vero evento 'input', non una scorciatoia separata da mantenere).
+    function wireSearchClearBtn(inputId, btnId) {
+        const input = document.getElementById(inputId);
+        const btn = document.getElementById(btnId);
+        if (!input || !btn) return;
+        const aggiorna = () => btn.classList.toggle('show', !!input.value);
+        input.addEventListener('input', aggiorna);
+        aggiorna();
+        btn.addEventListener('click', function() {
+            input.value = '';
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+            aggiorna();
+            input.focus();
+        });
+    }
 
     // v7.9 — chip di selezione categoria piatto: elenco valido e funzione
     // che imposta sia il valore (nel campo nascosto, letto dal resto del
@@ -7269,6 +7326,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (!piat) return;
                     hidden.value = piat.id;
                     input.value = piat.nome;
+                    document.getElementById('ricetta-piatto-search-clear')?.classList.add('show');
                     box.style.display = 'none';
                     renderRicette();
                 });
@@ -7291,6 +7349,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 box.style.display = 'none';
             }
         });
+        wireSearchClearBtn('ricetta-piatto-search', 'ricetta-piatto-search-clear');
     })();
 
     const ricettaSearchInput = document.getElementById('ricetta-ing-search-input');
@@ -7496,6 +7555,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (!piat) return;
                     hidden.value = piat.id;
                     input.value = piat.nome + fcMoneyText(' (€ ') + piat.prezzo.toFixed(2) + ')';
+                    document.getElementById('calcolo-piatto-search-clear')?.classList.add('show');
                     box.style.display = 'none';
                 });
             });
@@ -7513,6 +7573,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 box.style.display = 'none';
             }
         });
+        wireSearchClearBtn('calcolo-piatto-search', 'calcolo-piatto-search-clear');
     })();
 
     // ============================================================
@@ -9466,6 +9527,110 @@ document.addEventListener('DOMContentLoaded', function () {
             btn.textContent = testoOriginale;
             status.innerHTML = fcTemplate`<div class="warning-box">❌ Errore nello scaricamento: ${escapeHtml(e.message || fcText('errore sconosciuto'))}. Verifica la connessione e riprova.</div>`;
         }
+    });
+
+    // ============================================================
+    // ESPORTAZIONE EXCEL (XLSX) — v9.6
+    // Stesso principio del PDF: libreria caricata al volo da CDN solo
+    // quando serve, tutto costruito sul dispositivo, nessun server.
+    // Quattro fogli: Ingredienti, Piatti, Ricette, Archivio FC.
+    // Solo lettura dei dati esistenti — nessuna scrittura, zero rischio.
+    // ============================================================
+    document.getElementById('export-excel-btn')?.addEventListener('click', function() {
+        const btn = this;
+        const status = document.getElementById('export-excel-status');
+        const testoOriginale = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = fcText('⏳ Preparazione in corso...');
+        status.innerHTML = '';
+
+        function caricaSheetJS(callback) {
+            if (typeof XLSX !== 'undefined') { callback(); return; }
+            const s = document.createElement('script');
+            s.src = 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
+            s.onload = callback;
+            s.onerror = function() {
+                btn.disabled = false;
+                btn.textContent = testoOriginale;
+                status.innerHTML = fcTemplate`<div class="warning-box">❌ Errore nel caricamento del componente Excel. Verifica la connessione e riprova.</div>`;
+            };
+            document.head.appendChild(s);
+        }
+
+        caricaSheetJS(function() {
+            try {
+                const foglioIngredienti = (appData.ingredienti || []).map(i => ({
+                    [fcText('Nome')]: i.nome,
+                    [fcText('Unità')]: fcUnitLabel(i.um),
+                    [fcText('Costo')]: i.costo || 0,
+                    [fcText('Scarto %')]: i.scarto || 0,
+                    [fcText('Allergeni')]: (i.allergeni || []).map(a => {
+                        const voce = ALLERGENI_UE.find(x => x.id === a);
+                        return voce ? voce.label : a;
+                    }).join(', '),
+                    [fcText('Surgelato')]: i.surgelato ? fcText('Sì') : fcText('No')
+                }));
+
+                const foglioPiatti = (appData.piatti || []).map(p => ({
+                    [fcText('Nome')]: p.nome,
+                    [fcText('Categoria')]: categoryLabel(p.categoria),
+                    [fcText('Prezzo')]: p.prezzo || 0,
+                    [fcText('Note')]: p.note || '',
+                    [fcText('Nel menù clienti')]: p.inMenu ? fcText('Sì') : fcText('No'),
+                    [fcText('Data creazione')]: p.dataCreazione || ''
+                }));
+
+                const foglioRicette = [];
+                (appData.composizioni || []).forEach(c => {
+                    const piatto = getPiatto(c.piattoId);
+                    const ing = getIngrediente(c.ingredienteId);
+                    if (!piatto || !ing) return;
+                    foglioRicette.push({
+                        [fcText('Piatto')]: piatto.nome,
+                        [fcText('Ingrediente')]: ing.nome,
+                        [fcText('Quantità')]: c.quantita,
+                        [fcText('Unità')]: fcUnitLabel(c.umUsata || ing.um)
+                    });
+                });
+
+                const foglioArchivio = (appData.archivio || []).map(a => ({
+                    [fcText('Piatto')]: a.nome,
+                    [fcText('Data')]: a.dataArchivio || '',
+                    [fcText('Costo materie prime')]: a.costoStorico || 0,
+                    [fcText('Prezzo vendita')]: a.prezzoVendita || 0,
+                    [fcText('Margine netto stimato')]: a.margineNettoStorico || 0,
+                    [fcText('Food cost % (netto)')]: a.foodCostNettoStorico || 0
+                }));
+
+                // v9.7 — intestazioni bloccate in alto e colonne già larghe
+                // al punto giusto: restano leggibili anche scorrendo un
+                // foglio lungo (es. Ingredienti) o su schermi piccoli.
+                function fogliaLeggibile(ws, larghezze) {
+                    ws['!cols'] = larghezze.map(wch => ({ wch }));
+                    ws['!views'] = [{ state: 'frozen', ySplit: 1 }];
+                    return ws;
+                }
+
+                const wb = XLSX.utils.book_new();
+                XLSX.utils.book_append_sheet(wb, fogliaLeggibile(XLSX.utils.json_to_sheet(foglioIngredienti), [34, 10, 10, 10, 26, 10]), fcText('Ingredienti').slice(0, 31));
+                XLSX.utils.book_append_sheet(wb, fogliaLeggibile(XLSX.utils.json_to_sheet(foglioPiatti), [30, 16, 10, 30, 14, 14]), fcText('Piatti').slice(0, 31));
+                XLSX.utils.book_append_sheet(wb, fogliaLeggibile(XLSX.utils.json_to_sheet(foglioRicette), [30, 34, 12, 10]), fcText('Ricette').slice(0, 31));
+                XLSX.utils.book_append_sheet(wb, fogliaLeggibile(XLSX.utils.json_to_sheet(foglioArchivio), [34, 12, 18, 16, 20, 18]), fcText('Archivio FC').slice(0, 31));
+
+                const nomeFile = 'FoodCostManager_Export_' + new Date().toISOString().slice(0, 10) + '.xlsx';
+                XLSX.writeFile(wb, nomeFile);
+
+                btn.disabled = false;
+                btn.textContent = testoOriginale;
+                status.innerHTML = fcTemplate`<div class="success-msg">✅ File Excel scaricato con successo.</div>`;
+                showToast(fcText('✅ Esportazione completata'), 'success');
+            } catch (e) {
+                console.error(fcText('Errore esportazione Excel:'), e);
+                btn.disabled = false;
+                btn.textContent = testoOriginale;
+                status.innerHTML = fcTemplate`<div class="warning-box">❌ Errore durante l'esportazione. Riprova.</div>`;
+            }
+        });
     });
 
     // ============================================================
